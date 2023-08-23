@@ -2,13 +2,21 @@ export default function checkClosenessBetweenWords(
   capital: string,
   input: string
 ): number {
-  const unpackedCapital = capital.toLowerCase().split('');
-  const unpackedAnswer = input.toLowerCase().split('');
-  let closeWords = 0;
-  for (let letter of unpackedAnswer) {
-    if (unpackedCapital.includes(letter)) {
-      closeWords++;
+  // Convert both words to lowercase
+  const lowercaseCapital = capital.toLowerCase();
+  const lowercaseInput = input.toLowerCase();
+
+  const maxLength = Math.max(lowercaseCapital.length, lowercaseInput.length);
+
+  // Calculate closeness based on common letters and their positions
+  let closeness = 0;
+
+  for (let i = 0; i < maxLength; i++) {
+    if (lowercaseCapital[i] === lowercaseInput[i]) {
+      closeness++;
     }
   }
-  return (closeWords / unpackedCapital.length) * 100;
+
+  // Calculate closeness as a percentage of the longer word's length
+  return (closeness / maxLength) * 100;
 }

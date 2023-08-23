@@ -1,5 +1,4 @@
-'use client';
-
+import party from 'party-js';
 import { useRouter } from 'next/navigation';
 import { Dispatch, SetStateAction, FormEvent } from 'react';
 
@@ -9,6 +8,7 @@ interface SubmitButtonProps {
   setMessage: Dispatch<SetStateAction<string>>;
   answer: string;
 }
+
 export default function RefreshButton({
   userInput,
   setUserInput,
@@ -21,12 +21,20 @@ export default function RefreshButton({
     e.preventDefault();
 
     if (userInput.toLowerCase() === answer.toLowerCase()) {
+      // Cast e.target to HTMLElement
+      const targetElement = e.target as HTMLElement;
+
+      // Trigger confetti with options
+      party.confetti(targetElement, {
+        count: party.variation.range(20, 40),
+      });
+
       setMessage('Correct');
       setTimeout(() => {
         router.refresh();
         setUserInput('');
         setMessage('');
-      }, 1500);
+      }, 500);
     } else {
       setMessage('Nope');
       setTimeout(() => {
