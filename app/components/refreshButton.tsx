@@ -1,4 +1,5 @@
 'use client';
+
 import { useRouter } from 'next/navigation';
 import { Dispatch, SetStateAction, FormEvent } from 'react';
 
@@ -22,9 +23,9 @@ export default function RefreshButton({
     if (userInput.toLowerCase() === answer.toLowerCase()) {
       setMessage('Correct');
       setTimeout(() => {
+        router.refresh();
         setUserInput('');
         setMessage('');
-        router.refresh();
       }, 1500);
     } else {
       setMessage('Nope');

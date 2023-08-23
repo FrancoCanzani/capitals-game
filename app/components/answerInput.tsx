@@ -2,6 +2,7 @@
 
 import RefreshButton from './refreshButton';
 import { useState } from 'react';
+import checkClosenessBetweenWords from '../utils/checkClosenessBetweenWords';
 
 export default function AnswerInput({ answer }: { answer: string }) {
   const [userInput, setUserInput] = useState<string>('');
@@ -10,6 +11,7 @@ export default function AnswerInput({ answer }: { answer: string }) {
   return (
     <form className='flex flex-col justify-between gap-4'>
       <span>{message}</span>
+      <span>{checkClosenessBetweenWords(answer, userInput)}</span>
       <label htmlFor='guess' className='font-semibold hidden text-xs mb-1'>
         Your Answer
       </label>
