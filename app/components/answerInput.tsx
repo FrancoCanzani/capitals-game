@@ -1,15 +1,22 @@
 'use client';
 
+import { Dispatch, SetStateAction } from 'react';
 import RefreshButton from './refreshButton';
 import { useState } from 'react';
 
-export default function AnswerInput({ answer }: { answer: string }) {
+export default function AnswerInput({
+  answer,
+  streakCount,
+  setStreakCount,
+}: {
+  answer: string;
+  streakCount: number;
+  setStreakCount: Dispatch<SetStateAction<number>>;
+}) {
   const [userInput, setUserInput] = useState<string>('');
-  const [message, setMessage] = useState<string>('');
 
   return (
     <form className='flex flex-col justify-between gap-4'>
-      <span>{message}</span>
       <div className='w-full h-5 py-6 gap-4 text-center'>
         {answer
           .toLowerCase()
@@ -23,7 +30,7 @@ export default function AnswerInput({ answer }: { answer: string }) {
                   : 'bg-black text-black transform transition-all ease-out duration-150'
               }`}
             >
-              {/* Don't render the letter so it the answer can't be inspected in devtools */}
+              {/* Don't render the letter so the answer can't be inspected in devtools */}
               {letter === userInput.toLowerCase().split('')[index]
                 ? letter
                 : 'X'}
@@ -47,8 +54,9 @@ export default function AnswerInput({ answer }: { answer: string }) {
       <RefreshButton
         userInput={userInput}
         setUserInput={setUserInput}
-        setMessage={setMessage}
         answer={answer}
+        setStreakCount={setStreakCount}
+        streakCount={streakCount}
       />
     </form>
   );

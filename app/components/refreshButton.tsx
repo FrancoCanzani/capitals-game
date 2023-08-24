@@ -5,15 +5,17 @@ import { Dispatch, SetStateAction, FormEvent } from 'react';
 interface SubmitButtonProps {
   userInput: string;
   setUserInput: Dispatch<SetStateAction<string>>;
-  setMessage: Dispatch<SetStateAction<string>>;
   answer: string;
+  streakCount: number;
+  setStreakCount: Dispatch<SetStateAction<number>>;
 }
 
-export default function RefreshButton({
+export default function SubmitButtons({
   userInput,
   setUserInput,
-  setMessage,
   answer,
+  streakCount,
+  setStreakCount,
 }: SubmitButtonProps) {
   const router = useRouter();
 
@@ -23,27 +25,21 @@ export default function RefreshButton({
     if (userInput.toLowerCase() === answer.toLowerCase()) {
       // Cast e.target to HTMLElement
       const targetElement = e.target as HTMLElement;
-
+      setStreakCount(streakCount + 1);
       // Trigger confetti with options
       party.confetti(targetElement, {
         count: party.variation.range(20, 40),
       });
 
-      setMessage('Correct');
       setTimeout(() => {
         router.refresh();
         setUserInput('');
-        setMessage('');
       }, 500);
-    } else {
-      setMessage('Nope');
-      setTimeout(() => {
-        setMessage('');
-      }, 1500);
     }
   }
 
   function handleSkip() {
+    setStreakCount(0);
     setUserInput('');
     router.refresh();
   }
