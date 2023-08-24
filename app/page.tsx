@@ -16,7 +16,6 @@ async function getCountries() {
 export default async function Home() {
   const countries = await getCountries();
   const randomNumber = Math.floor(Math.random() * 250) + 1;
-
   return (
     <>
       <ClientProvider country={countries[randomNumber]}>

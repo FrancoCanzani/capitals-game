@@ -16,26 +16,27 @@ export default function AnswerInput({
   const [userInput, setUserInput] = useState<string>('');
 
   return (
-    <form className='flex flex-col justify-between gap-4'>
-      <div className='w-full h-5 py-6 gap-4 text-center'>
-        {answer
-          .toLowerCase()
-          .split('')
-          .map((letter, index) => (
-            <span
-              key={index}
-              className={`mr-4 uppercase p-1 shadow-sm w-8 h-2 text-xl font-semibold ${
-                letter === userInput.toLowerCase().split('')[index]
-                  ? ''
-                  : 'bg-black text-black transform transition-all ease-out duration-150'
-              }`}
-            >
-              {/* Don't render the letter so the answer can't be inspected in devtools */}
-              {letter === userInput.toLowerCase().split('')[index]
-                ? letter
-                : 'X'}
-            </span>
-          ))}
+    <form className='flex max-w-2xl flex-col justify-between gap-4'>
+      <div className='py-4 max-w-full flex flex-wrap justify-center'>
+        {answer &&
+          answer
+            .toLowerCase()
+            .split('')
+            .map((letter, index) => (
+              <span
+                key={index}
+                className={`m-4 my-2 max-w-full flex items-center justify-center uppercase  shadow-sm text-xl font-semibold ${
+                  letter === userInput.toLowerCase().split('')[index]
+                    ? 'px-3 py-1'
+                    : 'bg-black text-black w-10 h-10 transform transition-all ease-out duration-150'
+                }`}
+              >
+                {/* Don't render the letter so the answer can't be inspected in devtools */}
+                {letter === userInput.toLowerCase().split('')[index]
+                  ? letter
+                  : '▪️'}
+              </span>
+            ))}
       </div>
 
       <label htmlFor='guess' className='font-semibold hidden text-xs mb-1'>
