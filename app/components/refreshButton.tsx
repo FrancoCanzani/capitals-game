@@ -45,18 +45,18 @@ export default function SubmitButtons({
   }
 
   return (
-    <div className=' space-x-1 flex items-center'>
+    <div className='space-x-1 flex items-center'>
       <button
         onClick={handleSubmit}
         type='submit'
-        className='bg-black w-2/3 text-white rounded-md px-3 py-3 font-semibold'
+        className='bg-black w-2/3 text-white rounded-sm px-3 py-3 font-semibold'
       >
         Check
       </button>
       <button
         onClick={handleSkip}
         type='button'
-        className='bg-red-600 w-1/3 text-white rounded-md px-3 py-3 font-semibold'
+        className='bg-red-600 w-1/3 text-white rounded-sm px-3 py-3 font-semibold'
       >
         Skip
       </button>
