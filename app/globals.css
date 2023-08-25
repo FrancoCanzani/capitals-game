@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body {
+  -webkit-overflow-scrolling: touch !important;
+  overflow: auto !important;
+}
+
 :root {
   --foreground-rgb: #f8fafc;
   --background-start-rgb: 214, 219, 220;

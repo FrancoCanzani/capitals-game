@@ -7,8 +7,8 @@ export default function CountryInformation({ country }: { country: Country }) {
       <Image
         src={country.flags.svg}
         priority
-        width={200}
-        height={200}
+        width={225}
+        height={225}
         alt={`${country.flags.alt}`}
       />
       <p className='text-center mt-4 font-semibold text-xl'>
