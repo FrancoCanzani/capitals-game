@@ -16,8 +16,8 @@ export default function ClientProvider({
   const [streakCount, setStreakCount] = useState(0);
 
   return (
-    <main className='flex relative min-h-screen flex-col items-center justify-evenly px-4 md:px-24 py-6 pb-16 md:py-12'>
-      <header className='flex fixed top-0 py-6 items-center flex-row justify-evenly w-full'>
+    <main className='flex relative min-h-screen flex-col items-center justify-evenly px-4 md:px-24 pt-10 md:pb-16 md:py-12'>
+      <header className='flex fixed pt-4 mb-2 top-0 items-center flex-row justify-evenly w-full'>
         <Icon />
         <StreakCounter streakCount={streakCount} />
       </header>
