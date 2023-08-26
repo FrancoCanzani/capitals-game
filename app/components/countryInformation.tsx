@@ -3,7 +3,7 @@ import { Country } from '@/utils/types';
 
 export default function CountryInformation({ country }: { country: Country }) {
   return (
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col items-center animate-fade animate-ease-in-out'>
       <Image
         src={country.flags.svg}
         priority
