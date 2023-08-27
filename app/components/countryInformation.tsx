@@ -8,13 +8,17 @@ export default function CountryInformation({ country }: { country: Country }) {
   const languages = Object.values(country.languages).join(', ');
 
   return (
-    <div className='flex h-96 flex-col py-14 items-center animate-fade animate-ease-in-out'>
+    <div className='flex max-h-96 flex-col py-14 items-center animate-fade animate-ease-in-out'>
       <Image
         src={country.flags.svg}
-        priority
-        width={250}
-        height={250}
         alt={`${country.flags.alt}`}
+        priority
+        style={{
+          width: '35%',
+          height: 'auto',
+        }}
+        width={200}
+        height={200}
       />
       <div className='my-4'>
         <p className='text-center font-semibold text-xl'>
@@ -26,8 +30,8 @@ export default function CountryInformation({ country }: { country: Country }) {
       </div>
       <div className='text-center text-xs text-gray-700 space-y-1'>
         <p>{`Continent: ${country.continents[0]}`}</p>
-        <p>{`Currencies: ${currencies}`}</p>
-        <p>{`Languages: ${languages}`}</p>
+        <p>{`Currency: ${currencies}`}</p>
+        <p>{`Language: ${languages}`}</p>
         <p>{`Population: ${country.population.toLocaleString()}`}</p>
       </div>
     </div>

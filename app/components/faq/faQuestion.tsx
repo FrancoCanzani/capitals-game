@@ -6,7 +6,7 @@ export default function FAQuestion({
   answer: string;
 }) {
   return (
-    <div className='collapse rounded-sm collapse-arrow border-b'>
+    <div className='collapse rounded-sm md:collapse-arrow border-b'>
       <input type='checkbox' />
       <div className='collapse-title text-lg font-semibold px-0'>
         {question}
