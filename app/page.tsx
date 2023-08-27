@@ -28,19 +28,6 @@ export default async function Home() {
         {/* Server component  */}
         <CountryInformation country={countries[randomNumber]} />
       </ClientProvider>
-      <a
-        href='https://www.buymeacoffee.com/francocanzani'
-        target='_blank'
-        className='w-full flex items-center justify-center'
-      >
-        <Image
-          src='https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png'
-          alt='Buy Me A Coffee'
-          height={20}
-          priority
-          width={100}
-        />
-      </a>
       <Faq />
     </main>
   );
