@@ -6,7 +6,7 @@ export default function LetterHider({
   userInput: string;
 }) {
   return (
-    <div className='py-4 max-w-full flex flex-wrap justify-center'>
+    <div className='py-6 max-w-full flex flex-wrap justify-center'>
       {answer &&
         answer
           .toLowerCase()

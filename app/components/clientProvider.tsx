@@ -16,8 +16,8 @@ export default function ClientProvider({
   const [streakCount, setStreakCount] = useState(0);
 
   return (
-    <main className='flex antialiased max-w-2xl min-h-screen flex-col items-center justify-center xl:justify-evenly mx-4 mt-8 lg:mx-auto'>
-      <header className='flex fixed pt-4 mb-2 top-0 items-center flex-row justify-evenly w-full'>
+    <section className=''>
+      <header className='flex mb-6 items-center flex-row justify-between w-full'>
         <Icon />
         <StreakCounter streakCount={streakCount} />
       </header>
@@ -27,6 +27,6 @@ export default function ClientProvider({
         setStreakCount={setStreakCount}
         streakCount={streakCount}
       />
-    </main>
+    </section>
   );
 }

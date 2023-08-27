@@ -13,6 +13,17 @@ type Country = {
     };
   };
   capital: string[];
+  currencies: {
+    [key: string]: {
+      name: string;
+      symbol: string;
+    };
+  };
+  languages: {
+    [key: string]: string;
+  };
+  continents: string[];
+  population: number;
 };
 
 export type { Country };
