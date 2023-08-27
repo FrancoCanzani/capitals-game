@@ -8,7 +8,7 @@ export default function CountryInformation({ country }: { country: Country }) {
   const languages = Object.values(country.languages).join(', ');
 
   return (
-    <div className='flex flex-col py-9 items-center animate-fade animate-ease-in-out'>
+    <div className='flex flex-col py-11 md:py-9 items-center animate-fade animate-ease-in-out'>
       <div className='h-44 w-72 relative'>
         <Image
           src={country.flags.svg}
