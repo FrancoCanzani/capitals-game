@@ -7,7 +7,7 @@ export default function StreakCounter({
     <div>
       <p className='lg:text-xl font-semibold capitalize'>
         Current streak:{' '}
-        <span className='bg-black rounded-lg px-2 lg:text-2xl text-white font-semibold'>
+        <span className='bg-black rounded-md px-2 lg:text-2xl text-white font-semibold'>
           {streakCount}
         </span>
       </p>

@@ -8,6 +8,7 @@ interface SubmitButtonProps {
   answer: string;
   streakCount: number;
   setStreakCount: Dispatch<SetStateAction<number>>;
+  setRevealAnswer: Dispatch<SetStateAction<boolean>>;
 }
 
 export default function SubmitButtons({
@@ -16,6 +17,7 @@ export default function SubmitButtons({
   answer,
   streakCount,
   setStreakCount,
+  setRevealAnswer,
 }: SubmitButtonProps) {
   const router = useRouter();
 
@@ -40,8 +42,12 @@ export default function SubmitButtons({
 
   function handleSkip() {
     setStreakCount(0);
+    setRevealAnswer(true);
+    setTimeout(() => {
+      setRevealAnswer(false);
+      router.refresh();
+    }, 1500);
     setUserInput('');
-    router.refresh();
   }
 
   return (

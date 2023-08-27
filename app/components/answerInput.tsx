@@ -15,10 +15,15 @@ export default function AnswerInput({
   setStreakCount: Dispatch<SetStateAction<number>>;
 }) {
   const [userInput, setUserInput] = useState<string>('');
+  const [revealAnswer, setRevealAnswer] = useState(false);
 
   return (
-    <form className='flex pt-4 pb-6 max-w-2xl flex-col justify-between gap-1'>
-      <LetterHider answer={answer} userInput={userInput} />
+    <form className='flex pt-4 pb-6 xs:pb-8 max-w-2xl flex-col justify-between gap-1'>
+      <LetterHider
+        answer={answer}
+        userInput={userInput}
+        revealAnswer={revealAnswer}
+      />
       <label htmlFor='guess' className='font-semibold hidden text-xs mb-1'>
         Your Answer
       </label>
@@ -38,6 +43,7 @@ export default function AnswerInput({
         answer={answer}
         setStreakCount={setStreakCount}
         streakCount={streakCount}
+        setRevealAnswer={setRevealAnswer}
       />
     </form>
   );
