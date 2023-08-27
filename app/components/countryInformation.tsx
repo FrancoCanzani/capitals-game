@@ -8,18 +8,16 @@ export default function CountryInformation({ country }: { country: Country }) {
   const languages = Object.values(country.languages).join(', ');
 
   return (
-    <div className='flex max-h-96 flex-col py-16 items-center animate-fade animate-ease-in-out'>
+    <div className='flex max-h-96 flex-col py-14 items-center animate-fade animate-ease-in-out'>
       <Image
         src={country.flags.svg}
         alt={`${country.flags.alt}`}
         priority
-        style={{
-          width: '35%',
-          height: 'auto',
-        }}
-        width={200}
+        width={250}
         height={200}
+        className='m-auto h-full'
       />
+
       <div className='my-4'>
         <p className='text-center font-semibold text-xl'>
           {country.name.common}
