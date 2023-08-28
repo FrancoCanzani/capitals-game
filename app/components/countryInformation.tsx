@@ -11,7 +11,7 @@ export default function CountryInformation({ country }: { country: Country }) {
     <div className='flex flex-col py-11 md:py-9 items-center animate-fade animate-ease-in-out'>
       <div className='h-44 w-72 relative'>
         <Image
-          src={country.flags.svg}
+          src={country.flags.svg ?? country.flags.png}
           alt={`${country.flags.alt}`}
           priority
           layout='fill'

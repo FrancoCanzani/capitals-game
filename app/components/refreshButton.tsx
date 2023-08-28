@@ -46,7 +46,7 @@ export default function SubmitButtons({
     setTimeout(() => {
       setRevealAnswer(false);
       router.refresh();
-    }, 1500);
+    }, 1200);
     setUserInput('');
   }
 
