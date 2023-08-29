@@ -31,7 +31,7 @@ export default function CountryInformation({ country }: { country: Country }) {
           <span className='font-semibold'>Continent:</span>{' '}
           {country.continents[0]}
         </p>
-        <p>
+        <p className='capitalize'>
           <span className='font-semibold'>Currency:</span> {currencies}
         </p>
         <p>

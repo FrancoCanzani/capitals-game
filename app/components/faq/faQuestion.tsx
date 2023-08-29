@@ -1,9 +1,11 @@
+import { ReactNode } from 'react';
+
 export default function FAQuestion({
   question,
   answer,
 }: {
   question: string;
-  answer: string;
+  answer: string | ReactNode;
 }) {
   return (
     <div className='collapse rounded-sm md:collapse-arrow border-b'>
