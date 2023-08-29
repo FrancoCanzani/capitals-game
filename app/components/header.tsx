@@ -62,9 +62,9 @@ export default function Header({ streakCount }: { streakCount: number }) {
           Error: {userDataError.message}
         </p>
       ) : user ? (
-        <AuthButton text='Sign out' onClickFunction={() => signOut(auth)} />
+        <button onClick={() => signOut(auth)}>Sign Out</button>
       ) : (
-        <AuthButton text='Sign in' onClickFunction={() => signInWithGoogle()} />
+        <button onClick={() => signInWithGoogle()}>Sign In</button>
       )}
 
       <Link href={'/leaderboard'}>
