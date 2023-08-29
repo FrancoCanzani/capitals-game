@@ -78,13 +78,12 @@ export default function Leaderboard() {
                   <td className='border-b font-semibold truncate text-center p-4 align-middle'>{`${
                     doc.data().maxStreak
                   } capitals`}</td>
-                  <td className='border-b italic truncate text-center lg:p-4 align-middle'>
+                  <td className='border-b italic truncate text-center p-4 align-middle'>
                     {/* Convert the Firestore timestamp to a Date object and format it */}
-                    {doc.data().maxStreakTimestamp
-                      ? new Date(
-                          doc.data().maxStreakTimestamp.seconds * 1000
-                        ).toLocaleString()
-                      : ''}
+                    {doc.data().maxStreakTimestamp &&
+                      new Date(
+                        doc.data().maxStreakTimestamp.seconds * 1000
+                      ).toLocaleDateString()}
                   </td>
                 </tr>
               ))}

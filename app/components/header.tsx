@@ -41,7 +41,7 @@ export default function Header({ streakCount }: { streakCount: number }) {
   }, [userData, streakCount, user]);
 
   return (
-    <header className='flex mb-6 items-center flex-row justify-between w-full'>
+    <header className='flex mb-8 md:mb-6 items-center flex-row justify-between w-full'>
       <Icon />
       <div>
         <p className='text-xs font-semibold capitalize'>
@@ -62,9 +62,9 @@ export default function Header({ streakCount }: { streakCount: number }) {
           Error: {userDataError.message}
         </p>
       ) : user ? (
-        <button onClick={() => signOut(auth)}>Sign Out</button>
+        <AuthButton text='Sign out' onClickFunction={() => signOut(auth)} />
       ) : (
-        <button onClick={() => signInWithGoogle()}>Sign In</button>
+        <AuthButton text='Sign in' onClickFunction={() => signInWithGoogle()} />
       )}
 
       <Link href={'/leaderboard'}>
