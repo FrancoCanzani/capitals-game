@@ -8,8 +8,8 @@ export default function CountryInformation({ country }: { country: Country }) {
   const languages = Object.values(country.languages).join(', ');
 
   return (
-    <div className='flex flex-col py-11 md:py-9 items-center animate-fade animate-ease-in-out'>
-      <div className='h-44 w-72 relative'>
+    <div className='flex flex-col py-8 items-center animate-fade animate-ease-in-out'>
+      <div className='h-44 w-72 relative shadow-2xl shadow-amber-50'>
         <Image
           src={country.flags.svg ?? country.flags.png}
           alt={`${country.flags.alt}`}
@@ -18,7 +18,7 @@ export default function CountryInformation({ country }: { country: Country }) {
           objectFit='cover'
         />
       </div>
-      <div className='my-4'>
+      <div className='mt-10 mb-4'>
         <p className='text-center font-semibold text-xl'>
           {country.name.common}
         </p>
@@ -27,10 +27,20 @@ export default function CountryInformation({ country }: { country: Country }) {
         </p>
       </div>
       <div className='text-center text-xs text-gray-700 space-y-1'>
-        <p>{`Continent: ${country.continents[0]}`}</p>
-        <p>{`Currency: ${currencies}`}</p>
-        <p>{`Language: ${languages}`}</p>
-        <p>{`Population: ${country.population.toLocaleString()}`}</p>
+        <p>
+          <span className='font-semibold'>Continent:</span>{' '}
+          {country.continents[0]}
+        </p>
+        <p>
+          <span className='font-semibold'>Currency:</span> {currencies}
+        </p>
+        <p>
+          <span className='font-semibold'>Language:</span> {languages}
+        </p>
+        <p>
+          <span className='font-semibold'>Population:</span>{' '}
+          {country.population.toLocaleString()}
+        </p>
       </div>
     </div>
   );
