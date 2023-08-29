@@ -10,7 +10,7 @@ export default function Icon() {
       >
         Capitals
       </h1>
-      <Image src={'/world-icon.svg'} width={35} height={35} alt='World icon' />
+      <Image src={'/world-icon.svg'} width={28} height={28} alt='World icon' />
     </div>
   );
 }

@@ -1,8 +1,7 @@
 'use client';
 
 import AnswerInput from './answerInput';
-import StreakCounter from './streakCounter';
-import Icon from './icon';
+import Header from './header';
 import { Country } from '@/utils/types';
 import { useState } from 'react';
 
@@ -17,10 +16,7 @@ export default function ClientProvider({
 
   return (
     <>
-      <header className='flex mb-6 items-center flex-row justify-between w-full'>
-        <Icon />
-        <StreakCounter streakCount={streakCount} />
-      </header>
+      <Header streakCount={streakCount} />
       {children}
       <AnswerInput
         answer={country.capital[0]}

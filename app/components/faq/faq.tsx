@@ -24,22 +24,6 @@ export default function Faq() {
         question='Why is your data incorrect or old?'
         answer='We are continually working to update our data as quickly and accurately as possible. We understand that borders change, capital cities move, and maps become outdated.'
       />
-      <FAQuestion
-        question='How can I support the game?'
-        answer={
-          <p>
-            We have a{' '}
-            <a
-              href='https://www.buymeacoffee.com/francocanzani'
-              target='_blank'
-              className='underline font-semibold text-yellow-400'
-            >
-              BuyMeACoffee
-            </a>{' '}
-            page.
-          </p>
-        }
-      />
     </section>
   );
 }
