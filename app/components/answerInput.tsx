@@ -18,7 +18,7 @@ export default function AnswerInput({
   const [revealAnswer, setRevealAnswer] = useState(false);
 
   return (
-    <form className='flex pt-4 pb-6 xs:pb-8 max-w-2xl flex-col justify-between gap-1'>
+    <form className='flex pt-4 pb-6 xs:pb-8 w-full flex-col justify-between gap-1'>
       <LetterHider
         answer={answer}
         userInput={userInput}

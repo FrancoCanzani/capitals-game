@@ -22,7 +22,7 @@ export default async function Home() {
   const randomNumber = generateRandomNumber();
 
   return (
-    <main className='min-w-0 flex flex-col px-2 md:px-0'>
+    <main className='flex xl:max-w-lg flex-col items-center px-2 md:px-0'>
       <ClientProvider country={countries[randomNumber]}>
         {/* Server component  */}
         <CountryInformation country={countries[randomNumber]} />
