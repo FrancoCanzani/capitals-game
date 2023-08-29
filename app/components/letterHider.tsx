@@ -8,7 +8,7 @@ export default function LetterHider({
   revealAnswer: boolean;
 }) {
   return (
-    <div className='pt-6 pb-3 max-w-full flex justify-center'>
+    <div className='pt-6 pb-4 md:pb-3 max-w-full flex justify-center'>
       {answer &&
         answer
           .toLowerCase()

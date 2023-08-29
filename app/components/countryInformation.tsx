@@ -18,7 +18,7 @@ export default function CountryInformation({ country }: { country: Country }) {
           objectFit='cover'
         />
       </div>
-      <div className='mt-10 mb-4'>
+      <div className='mt-12 md:mt-10 mb-5'>
         <p className='text-center font-semibold text-xl'>
           {country.name.common}
         </p>

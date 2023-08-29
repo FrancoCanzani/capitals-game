@@ -47,7 +47,7 @@ export default function Leaderboard() {
             Error: {dataError.message}
           </p>
         ) : (
-          <table className='w-full md:w-2/3 overflow-auto mt-8'>
+          <table className='w-full text-sm md:text-base md:w-2/3 overflow-auto px-2 mt-8'>
             <thead className='[&_tr]:border-b'>
               <tr className='text-[#64748b]'>
                 <th className='h-12 px-4 text-center align-middle font-medium'>
@@ -67,7 +67,7 @@ export default function Leaderboard() {
                   <td className='border-b font-semibold text-center truncate p-4 align-middle'>
                     {index === 0 ? (
                       <div className='flex items-center justify-center gap-2'>
-                        <Trophy />
+                        <Trophy size={20} />
                         {doc.data().displayName}{' '}
                       </div>
                     ) : (
