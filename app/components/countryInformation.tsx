@@ -14,8 +14,9 @@ export default function CountryInformation({ country }: { country: Country }) {
           src={country.flags.svg ?? country.flags.png}
           alt={`${country.flags.alt}`}
           priority
-          layout='fill'
-          objectFit='cover'
+          fill
+          style={{ objectFit: 'cover' }}
+          className='rounded-md bg-cover'
         />
       </div>
       <div className='mt-12 md:mt-10 mb-5'>
