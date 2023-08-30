@@ -8,7 +8,7 @@ export default function AuthButton({
   onClickFunction: MouseEventHandler<HTMLButtonElement>;
 }) {
   return (
-    <button className='text-xs font-semibold' onClick={onClickFunction}>
+    <button className='font-semibold' onClick={onClickFunction}>
       {text}
     </button>
   );

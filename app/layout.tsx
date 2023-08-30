@@ -1,7 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
@@ -17,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${inter.className} antialiased flex flex-col items-center mx-4 mt-6`}
+        className={`${inter.className} antialiased flex flex-col items-center mx-4 mt-4`}
       >
         {children}
       </body>

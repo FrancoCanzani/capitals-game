@@ -11,8 +11,9 @@ import { app } from '../../firebase';
 import createPlayerIfNotExists from '@/utils/createPlayerIfNotExists';
 import updateMaxStreak from '@/utils/updateMaxStreak';
 import Link from 'next/link';
-import { Trophy } from 'lucide-react';
 import AuthButton from './authButton';
+import Image from 'next/image';
+import { LogOut, MoveUpRight } from 'lucide-react';
 
 export default function Header({ streakCount }: { streakCount: number }) {
   const auth = getAuth(app);
@@ -43,33 +44,51 @@ export default function Header({ streakCount }: { streakCount: number }) {
   return (
     <header className='flex mb-8 md:mb-6 items-center flex-row justify-between w-full'>
       <Icon />
-      <div>
-        <p className='text-xs font-semibold capitalize'>
-          Current streak:{' '}
-          <span className='px-1 font-semibold'>{streakCount}</span>
-        </p>
-        <p className='text-xs font-semibold capitalize'>
-          Best streak:{' '}
-          <span className='px-1 font-semibold'>
-            {userData?.data()?.maxStreak}
-          </span>
-        </p>
-      </div>
-      {userDataLoading ? (
-        <span className='loading loading-dots loading-md'></span>
-      ) : userDataError ? (
-        <p className='mt-8 bg-red-300 px-3 py-2 text-center'>
-          Error: {userDataError.message}
-        </p>
-      ) : user ? (
-        <AuthButton text='Sign out' onClickFunction={() => signOut(auth)} />
+      {user ? (
+        <div className='dropdown dropdown-bottom dropdown-end'>
+          <label tabIndex={0} className='btn space-x-2 capitalize'>
+            <Image
+              src={user?.photoURL}
+              alt='Profile pic'
+              width={22}
+              height={22}
+              className='rounded-md'
+            />
+            <span>{user.displayName}</span>
+            <span className='bg-white rounded-md px-2 py-1'>{streakCount}</span>
+          </label>
+          <ul
+            tabIndex={0}
+            className='dropdown-content capitalize font-semibold z-[1] menu p-2 shadow bg-base-100 rounded-box w-52'
+          >
+            <li className='flex flex-row items-center justify-between'>
+              <span>Current Streak</span>
+              <span>{streakCount}</span>
+            </li>
+            <li className='flex flex-row items-center justify-between'>
+              <span>Max. Streak</span>
+              <span>{userData?.data()?.maxStreak}</span>
+            </li>
+            <li>
+              <div className='flex flex-row items-center justify-between'>
+                <Link href={'/leaderboard'}>Leaderboard</Link>
+                <MoveUpRight size={18} />
+              </div>
+            </li>
+            <li>
+              <div className='flex items-center flex-row justify-between w-full'>
+                <AuthButton
+                  text='Sign out'
+                  onClickFunction={() => signOut(auth)}
+                />
+                <LogOut size={18} />
+              </div>
+            </li>
+          </ul>
+        </div>
       ) : (
         <AuthButton text='Sign in' onClickFunction={() => signInWithGoogle()} />
       )}
-
-      <Link href={'/leaderboard'}>
-        <Trophy />
-      </Link>
     </header>
   );
 }
