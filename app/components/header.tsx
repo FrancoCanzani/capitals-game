@@ -10,9 +10,8 @@ import { app } from '../../firebase';
 import createPlayerIfNotExists from '@/utils/createPlayerIfNotExists';
 import updateMaxStreak from '@/utils/updateMaxStreak';
 import Link from 'next/link';
-import AuthButton from './authButton';
 import Image from 'next/image';
-import { LogOut, MoveUpRight } from 'lucide-react';
+import { LogOut, MoveUpRight, LogIn } from 'lucide-react';
 
 export default function Header({ streakCount }: { streakCount: number }) {
   const auth = getAuth(app);
@@ -52,7 +51,7 @@ export default function Header({ streakCount }: { streakCount: number }) {
             className='btn bg-white hover:bg-slate-50 rounded-md space-x-2 capitalize'
           >
             <Image
-              src={user?.photoURL ?? '../../public/profilePicPlaceholder.png'}
+              src={user?.photoURL ?? '/profilePicPlaceholder.png'}
               alt='Profile pic'
               width={25}
               height={25}
@@ -102,7 +101,13 @@ export default function Header({ streakCount }: { streakCount: number }) {
           </ul>
         </div>
       ) : (
-        <AuthButton text='Sign In' onClickFunction={() => signInWithGoogle()} />
+        <button
+          className='flex items-center font-semibold border rounded-md px-3 py-1 flex-row justify-between w-28'
+          onClick={() => signInWithGoogle()}
+        >
+          <Image src={'/google.png'} alt='Google Logo' height={15} width={15} />
+          Sign In
+        </button>
       )}
     </header>
   );
