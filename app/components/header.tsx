@@ -48,7 +48,7 @@ export default function Header({ streakCount }: { streakCount: number }) {
         <div className='dropdown dropdown-bottom dropdown-end'>
           <label tabIndex={0} className='btn space-x-2 capitalize'>
             <Image
-              src={user?.photoURL}
+              src={user?.photoURL ?? '../../public/profilePicPlaceholder.png'}
               alt='Profile pic'
               width={22}
               height={22}
