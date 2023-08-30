@@ -1,4 +1,5 @@
 import { MouseEventHandler } from 'react';
+import { LogOut } from 'lucide-react';
 
 export default function AuthButton({
   text,
@@ -8,8 +9,11 @@ export default function AuthButton({
   onClickFunction: MouseEventHandler<HTMLButtonElement>;
 }) {
   return (
-    <button className='font-semibold' onClick={onClickFunction}>
-      {text}
-    </button>
+    <div className='capitalize flex items-center justify-between flex-row w-full'>
+      <button className='font-semibold' onClick={onClickFunction}>
+        {text}
+      </button>{' '}
+      <LogOut size={18} />
+    </div>
   );
 }

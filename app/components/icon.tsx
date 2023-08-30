@@ -6,11 +6,11 @@ export default function Icon() {
   return (
     <div className='flex items-center space-x-2'>
       <h1
-        className={`${leagueSpartan.className} text-2xl lg:text-3xl font-semibold`}
+        className={`${leagueSpartan.className} text-xl md:text-2xl lg:text-3xl font-semibold`}
       >
         Capitals
       </h1>
-      <Image src={'/world-icon.svg'} width={28} height={28} alt='World icon' />
+      <Image src={'/world-icon.svg'} width={22} height={22} alt='World icon' />
     </div>
   );
 }

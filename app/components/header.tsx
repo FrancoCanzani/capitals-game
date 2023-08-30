@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import StreakCounter from './streakCounter';
 import Icon from './icon';
 import { db } from '../../firebase';
 import { doc } from 'firebase/firestore';
@@ -44,50 +43,66 @@ export default function Header({ streakCount }: { streakCount: number }) {
   return (
     <header className='flex mb-8 md:mb-6 items-center flex-row justify-between w-full'>
       <Icon />
-      {user ? (
+      {loading ? (
+        <span className='loading loading-dots loading-md'></span>
+      ) : user ? (
         <div className='dropdown dropdown-bottom dropdown-end'>
-          <label tabIndex={0} className='btn space-x-2 capitalize'>
+          <label
+            tabIndex={0}
+            className='btn bg-white hover:bg-slate-50 rounded-md space-x-2 capitalize'
+          >
             <Image
               src={user?.photoURL ?? '../../public/profilePicPlaceholder.png'}
               alt='Profile pic'
-              width={22}
-              height={22}
+              width={25}
+              height={25}
               className='rounded-md'
             />
             <span>{user.displayName}</span>
-            <span className='bg-white rounded-md px-2 py-1'>{streakCount}</span>
+            <span className='bg-gray-50 rounded-md px-2 py-1'>
+              {streakCount}
+            </span>
           </label>
           <ul
             tabIndex={0}
-            className='dropdown-content capitalize font-semibold z-[1] menu p-2 shadow bg-base-100 rounded-box w-52'
+            className='dropdown-content rounded-md capitalize  font-semibold z-[1] menu p-2 shadow bg-base-100 w-52'
           >
-            <li className='flex flex-row items-center justify-between'>
-              <span>Current Streak</span>
-              <span>{streakCount}</span>
-            </li>
-            <li className='flex flex-row items-center justify-between'>
-              <span>Max. Streak</span>
-              <span>{userData?.data()?.maxStreak}</span>
-            </li>
             <li>
-              <div className='flex flex-row items-center justify-between'>
-                <Link href={'/leaderboard'}>Leaderboard</Link>
-                <MoveUpRight size={18} />
+              <div className='flex flex-row w-full rounded-md hover:bg-gray-50 items-center justify-between'>
+                <span>Current Streak</span>
+                <span className='bg-gray-50 rounded-md px-2 py-1'>
+                  {streakCount}
+                </span>
               </div>
             </li>
             <li>
-              <div className='flex items-center flex-row justify-between w-full'>
-                <AuthButton
-                  text='Sign out'
-                  onClickFunction={() => signOut(auth)}
-                />
+              <div className='flex flex-row items-center w-full rounded-md hover:bg-gray-50 justify-between'>
+                <span>Max. Streak</span>
+                <span className='bg-gray-50 rounded-md px-2 py-1'>
+                  {userData?.data()?.maxStreak}
+                </span>
+              </div>
+            </li>
+            <li className='border-b'>
+              <div className='flex mb-1 hover:bg-gray-50 flex-row items-center justify-between'>
+                <Link
+                  href={'/leaderboard'}
+                  className='flex items-center justify-between w-full'
+                >
+                  Leaderboard <MoveUpRight size={18} />
+                </Link>
+              </div>
+            </li>
+            <li className='mt-1'>
+              <div className='flex items-center hover:bg-red-100 flex-row justify-between w-full'>
+                <button onClick={() => signOut(auth)}>Sign Out</button>
                 <LogOut size={18} />
               </div>
             </li>
           </ul>
         </div>
       ) : (
-        <AuthButton text='Sign in' onClickFunction={() => signInWithGoogle()} />
+        <AuthButton text='Sign In' onClickFunction={() => signInWithGoogle()} />
       )}
     </header>
   );
