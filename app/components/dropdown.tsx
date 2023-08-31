@@ -20,7 +20,7 @@ export default function Dropdown({
     <div className='dropdown dropdown-bottom dropdown-end'>
       <label
         tabIndex={0}
-        className='btn bg-white hover:bg-slate-50 rounded-md space-x-2 capitalize'
+        className='btn border-none bg-inherit hover:bg-slate-50 rounded-md space-x-2 capitalize'
       >
         <Image
           src={user?.photoURL ?? '/profilePicPlaceholder.png'}

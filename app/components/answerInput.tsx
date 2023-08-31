@@ -30,6 +30,7 @@ export default function AnswerInput({
       <input
         type='text'
         name='guess'
+        autoFocus
         id='guess'
         className='rounded-sm p-2 mb-2 border-2 border-gray-100'
         placeholder='Answer'
