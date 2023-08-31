@@ -1,6 +1,6 @@
 # Countries Game
 
-Countries Game is a web application built using Next.js that tests your knowledge of world capitals. It provides an interactive quiz where you can guess the capital of a random country. The game features multiple difficulty levels based on country population and a leaderboard to track your progress.
+Countries Game is a web application built using Next.js that tests your knowledge of world capitals. It provides an interactive quiz where you can guess the capital of a random country. The game features a leaderboard to track your progress.
 
 ## Table of Contents
 
