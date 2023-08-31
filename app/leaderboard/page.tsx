@@ -47,48 +47,39 @@ export default function Leaderboard() {
             Error: {dataError.message}
           </p>
         ) : (
-          <table className='w-full text-sm md:text-base md:w-2/3 overflow-auto px-2 mt-8'>
-            <thead className='[&_tr]:border-b'>
-              <tr className='text-[#64748b]'>
-                <th className='h-12 px-4 text-center align-middle font-medium'>
-                  Name
-                </th>
-                <th className='h-12 px-4 text-center align-middle font-medium'>
-                  Max Score
-                </th>
-                <th className='h-12 px-4 text-center align-middle font-medium'>
-                  Date
-                </th>
-              </tr>
-            </thead>
-            <tbody className='[&_tr:last-child]:border-0'>
-              {sortedData?.map((doc, index) => (
-                <tr key={doc.id}>
-                  <td className='border-b font-semibold text-center truncate p-4 align-middle'>
-                    {index === 0 ? (
-                      <div className='flex items-center justify-center gap-2'>
-                        <Trophy size={20} />
-                        {doc.data().displayName}{' '}
-                      </div>
-                    ) : (
-                      doc.data().displayName
-                    )}
-                  </td>
-
-                  <td className='border-b font-semibold truncate text-center p-4 align-middle'>{`${
-                    doc.data().maxStreak
-                  } capitals`}</td>
-                  <td className='border-b italic truncate text-center p-4 align-middle'>
-                    {/* Convert the Firestore timestamp to a Date object and format it */}
-                    {doc.data().maxStreakTimestamp &&
-                      new Date(
-                        doc.data().maxStreakTimestamp.seconds * 1000
-                      ).toLocaleDateString()}
-                  </td>
+          <div className='overflow-x-auto mt-8'>
+            <table className='table'>
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Name</th>
+                  <th>Score</th>
+                  <th>Date</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {sortedData?.map((doc, index) => (
+                  <tr
+                    className={`${index == 0 && 'bg-stone-100'}`}
+                    key={doc.id}
+                  >
+                    <td className='flex items-center justify-center'>
+                      {index == 0 ? <Trophy size={18} /> : index + 1}
+                    </td>
+                    <td>{doc.data().displayName}</td>
+                    <td>{`${doc.data().maxStreak} capitals`}</td>
+                    <td>
+                      {/* Convert the Firestore timestamp to a Date object and format it */}
+                      {doc.data().maxStreakTimestamp &&
+                        new Date(
+                          doc.data().maxStreakTimestamp.seconds * 1000
+                        ).toLocaleDateString()}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
     </section>
