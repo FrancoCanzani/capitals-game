@@ -16,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${inter.className} antialiased flex flex-col items-center mx-4 mt-4`}
+        className={`${inter.className} antialiased bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)] flex flex-col items-center mx-4 pt-4`}
       >
         {children}
       </body>
