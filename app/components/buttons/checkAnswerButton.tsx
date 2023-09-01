@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import party from 'party-js';
 import { useRouter } from 'next/navigation';
 import { FormEvent } from 'react';
@@ -11,22 +12,26 @@ export default function CheckAnswerButton({
   setStreakCount,
 }: CheckButtonProps) {
   const router = useRouter();
+  const [shake, setShake] = useState(false); // State variable for shaking effect
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
 
     if (userInput.toLowerCase() === answer.toLowerCase()) {
-      // Cast e.target to HTMLElement
-      const targetElement = e.target as HTMLElement;
       setStreakCount(streakCount + 1);
       // Trigger confetti with options
-      party.confetti(targetElement, {
+      party.confetti(e.target as HTMLElement, {
         count: party.variation.range(20, 40),
       });
 
       setTimeout(() => {
         router.refresh();
         setUserInput('');
+      }, 500);
+    } else {
+      setShake(true);
+      setTimeout(() => {
+        setShake(false);
       }, 500);
     }
   }
@@ -35,7 +40,9 @@ export default function CheckAnswerButton({
     <button
       onClick={handleSubmit}
       type='submit'
-      className='bg-black w-2/3 text-white rounded-sm px-3 py-3 font-semibold'
+      className={`bg-black w-2/3 text-white rounded-sm px-3 py-3 font-semibold ${
+        shake ? 'shake text-red-500' : '' // Apply the 'shake' class when shaking is true
+      }`}
     >
       Check
     </button>
