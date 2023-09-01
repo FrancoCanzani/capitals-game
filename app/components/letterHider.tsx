@@ -16,7 +16,7 @@ export default function LetterHider({
           .map((letter, index) => (
             <span
               key={index}
-              className={`mr-1 mb-1 lg:mb-2 p-1 h-6 w-6 flex items-center justify-center uppercase shadow-sm text-sm font-semibold ${
+              className={`mr-1 mb-1 lg:mb-2 basis-auto h-5 w-5 p-1 flex items-center justify-center uppercase shadow-sm text-sm font-semibold ${
                 letter === userInput.toLowerCase().split('')[index] ||
                 revealAnswer === true
                   ? 'revealed' // Apply the revealed class

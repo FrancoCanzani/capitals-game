@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from 'react';
+
 type Country = {
   flags: {
     png: string;
@@ -26,4 +28,21 @@ type Country = {
   population: number;
 };
 
-export type { Country };
+interface SkipButtonProps {
+  userInput: string;
+  setUserInput: Dispatch<SetStateAction<string>>;
+  answer: string;
+  streakCount: number;
+  setStreakCount: Dispatch<SetStateAction<number>>;
+  setRevealAnswer: Dispatch<SetStateAction<boolean>>;
+}
+
+interface CheckButtonProps {
+  userInput: string;
+  setUserInput: Dispatch<SetStateAction<string>>;
+  answer: string;
+  streakCount: number;
+  setStreakCount: Dispatch<SetStateAction<number>>;
+}
+
+export type { Country, SkipButtonProps, CheckButtonProps };

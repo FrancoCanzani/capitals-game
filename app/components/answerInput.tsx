@@ -1,9 +1,10 @@
 'use client';
 
 import { Dispatch, SetStateAction } from 'react';
-import RefreshButton from './refreshButton';
 import { useState } from 'react';
 import LetterHider from './letterHider';
+import CheckAnswerButton from './buttons/checkAnswerButton';
+import SkipButton from './buttons/skipButton';
 
 export default function AnswerInput({
   answer,
@@ -30,6 +31,7 @@ export default function AnswerInput({
       <input
         type='text'
         name='guess'
+        spellCheck='false'
         autoFocus
         id='guess'
         className='rounded-sm p-2 mb-2 border-2 border-gray-100'
@@ -38,14 +40,24 @@ export default function AnswerInput({
         autoComplete='off'
         onChange={(e) => setUserInput(e.target.value)}
       />
-      <RefreshButton
-        userInput={userInput}
-        setUserInput={setUserInput}
-        answer={answer}
-        setStreakCount={setStreakCount}
-        streakCount={streakCount}
-        setRevealAnswer={setRevealAnswer}
-      />
+
+      <div className='space-x-1 flex items-center'>
+        <CheckAnswerButton
+          userInput={userInput}
+          setUserInput={setUserInput}
+          answer={answer}
+          setStreakCount={setStreakCount}
+          streakCount={streakCount}
+        />
+        <SkipButton
+          userInput={userInput}
+          setUserInput={setUserInput}
+          answer={answer}
+          setStreakCount={setStreakCount}
+          streakCount={streakCount}
+          setRevealAnswer={setRevealAnswer}
+        />
+      </div>
     </form>
   );
 }

@@ -5,14 +5,15 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className='text-xs w-full flex items-center justify-evenly py-2 mt-2'>
+    <footer className='text-xs max-w-5xl w-full flex items-center justify-evenly py-2 mt-2'>
       <div className='flex items-center gap-2'>
         <Copyright size={15} />
         Copyright 2023{' '}
-        <span className={`${leagueSpartan.className} font-semibold`}>
-          Capitals
-        </span>
       </div>
+
+      <span className={`${leagueSpartan.className} font-semibold`}>
+        Capitals
+      </span>
 
       <Link href={'/termsOfService'} className='underline'>
         Terms of service

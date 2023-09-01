@@ -8,9 +8,9 @@ export default function FAQuestion({
   answer: string | ReactNode;
 }) {
   return (
-    <div className='collapse rounded-sm sm:collapse-arrow border-b'>
+    <div className='collapse rounded-sm collapse-arrow border-b'>
       <input type='checkbox' />
-      <div className='collapse-title text-lg font-semibold px-0'>
+      <div className='collapse-title text-base sm:text-lg font-semibold px-0'>
         {question}
       </div>
       <div className='collapse-content px-0 text-sm text-gray-600'>
