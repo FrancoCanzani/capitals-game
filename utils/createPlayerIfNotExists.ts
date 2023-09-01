@@ -6,6 +6,7 @@ import {
   getDoc,
   serverTimestamp, // Import the serverTimestamp function
 } from 'firebase/firestore';
+import { toast } from 'sonner';
 
 // Initialize Firebase Authentication and Firestore
 const auth = getAuth();
@@ -37,11 +38,9 @@ export default async function createPlayerIfNotExists(
 
       await setDoc(playerDocRef, userData);
 
-      console.log('New player document created:', user.uid);
-    } else {
-      console.log('Player document already exists:', user.uid);
+      toast.success(`Player profile created. Welcome ${user.displayName}!`);
     }
   } catch (error) {
-    console.error('Error creating player:', error);
+    toast.error('Error creating player profile.');
   }
 }

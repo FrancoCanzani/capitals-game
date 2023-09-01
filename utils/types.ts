@@ -43,6 +43,8 @@ interface CheckButtonProps {
   answer: string;
   streakCount: number;
   setStreakCount: Dispatch<SetStateAction<number>>;
+  shake: boolean;
+  setShake: Dispatch<SetStateAction<boolean>>;
 }
 
 export type { Country, SkipButtonProps, CheckButtonProps };

@@ -63,10 +63,12 @@ export default function Dropdown({
           </div>
         </li>
         <li className='mt-1'>
-          <div className='flex items-center hover:bg-red-100 flex-row justify-between w-full'>
-            <button onClick={() => signOut(auth)}>Sign Out</button>
-            <LogOut size={18} />
-          </div>
+          <button
+            className='flex items-center hover:bg-red-100 flex-row justify-between w-full'
+            onClick={() => signOut(auth)}
+          >
+            Sign Out <LogOut size={18} />
+          </button>
         </li>
       </ul>
     </div>

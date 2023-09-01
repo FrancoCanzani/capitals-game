@@ -17,6 +17,7 @@ export default function AnswerInput({
 }) {
   const [userInput, setUserInput] = useState<string>('');
   const [revealAnswer, setRevealAnswer] = useState(false);
+  const [shake, setShake] = useState(false); // State variable for shaking effect
 
   return (
     <form className='flex pt-4 pb-6 xs:pb-8 w-full flex-col justify-between gap-1'>
@@ -34,7 +35,9 @@ export default function AnswerInput({
         spellCheck='false'
         autoFocus
         id='guess'
-        className='rounded-sm p-2 mb-2 border-2 border-gray-100'
+        className={`rounded-sm p-2 mb-2 border-2 ${
+          shake ? 'border-red-500' : 'border-gray-100'
+        }`}
         placeholder='Answer'
         value={userInput}
         autoComplete='off'
@@ -48,6 +51,8 @@ export default function AnswerInput({
           answer={answer}
           setStreakCount={setStreakCount}
           streakCount={streakCount}
+          shake={shake}
+          setShake={setShake}
         />
         <SkipButton
           userInput={userInput}

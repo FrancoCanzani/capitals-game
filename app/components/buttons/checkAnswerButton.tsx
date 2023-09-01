@@ -10,9 +10,10 @@ export default function CheckAnswerButton({
   answer,
   streakCount,
   setStreakCount,
+  shake,
+  setShake,
 }: CheckButtonProps) {
   const router = useRouter();
-  const [shake, setShake] = useState(false); // State variable for shaking effect
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -41,7 +42,7 @@ export default function CheckAnswerButton({
       onClick={handleSubmit}
       type='submit'
       className={`bg-black w-2/3 text-white rounded-sm px-3 py-3 font-semibold ${
-        shake ? 'shake text-red-500' : '' // Apply the 'shake' class when shaking is true
+        shake ? 'shake' : '' // Apply the 'shake' class when shaking is true
       }`}
     >
       Check
