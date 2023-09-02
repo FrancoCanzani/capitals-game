@@ -17,20 +17,22 @@ export default function Dropdown({
   const auth = getAuth(app);
 
   return (
-    <div className='dropdown dropdown-bottom dropdown-end'>
+    <div className='dropdown hover:bg-gray-50 dropdown-bottom dropdown-end'>
       <label
         tabIndex={0}
-        className='btn border-none bg-inherit hover:bg-slate-50 rounded-md space-x-2 capitalize'
+        className='btn border-none shadow-xs bg-white rounded-md space-x-2 capitalize'
       >
         <Image
           src={user?.photoURL ?? '/profilePicPlaceholder.png'}
           alt='Profile pic'
-          width={25}
-          height={25}
-          className='rounded-md'
+          width={28}
+          height={28}
+          className='rounded-full'
         />
-        <span>{user?.displayName}</span>
-        <span className='bg-gray-50 rounded-md px-2 py-1'>{streakCount}</span>
+        <div className='bg-gray-50 p-2 space-x-2 rounded-md font-semibold'>
+          <span>Streak:</span>
+          <span className='bg-white rounded-md px-2 py-0.5'>{streakCount}</span>
+        </div>
       </label>
       <ul
         tabIndex={0}
