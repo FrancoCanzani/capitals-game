@@ -16,7 +16,7 @@ To run the Countries Game locally, follow these steps:
 
 1. Clone the repository to your local machine:
 
-> git clone https://github.com/your-username/countries-game.git
+> git clone https://github.com/FrancoCanzani/countries-game
 
 2. Navigate to the project directory:
 
