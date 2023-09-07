@@ -10,10 +10,12 @@ export default function AnswerInput({
   answer,
   streakCount,
   setStreakCount,
+  setAlreadyGuessedCapitals,
 }: {
   answer: string;
   streakCount: number;
   setStreakCount: Dispatch<SetStateAction<number>>;
+  setAlreadyGuessedCapitals: Dispatch<SetStateAction<Array<string>>>;
 }) {
   const [userInput, setUserInput] = useState<string>('');
   const [revealAnswer, setRevealAnswer] = useState(false);
@@ -53,6 +55,7 @@ export default function AnswerInput({
           streakCount={streakCount}
           shake={shake}
           setShake={setShake}
+          setAlreadyGuessedCapitals={setAlreadyGuessedCapitals}
         />
         <SkipButton
           userInput={userInput}

@@ -45,6 +45,7 @@ interface CheckButtonProps {
   setStreakCount: Dispatch<SetStateAction<number>>;
   shake: boolean;
   setShake: Dispatch<SetStateAction<boolean>>;
+  setAlreadyGuessedCapitals: Dispatch<SetStateAction<Array<string>>>;
 }
 
 export type { Country, SkipButtonProps, CheckButtonProps };

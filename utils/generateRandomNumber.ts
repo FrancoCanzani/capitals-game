@@ -1,4 +1,4 @@
-export default function generateRandomNumber() {
-  let randomNumer = Math.floor(Math.random() * 246) + 1;
-  return randomNumer;
+export default function generateRandomNumber(range: number) {
+  let randomNumber = Math.floor(Math.random() * range) + 1;
+  return randomNumber;
 }

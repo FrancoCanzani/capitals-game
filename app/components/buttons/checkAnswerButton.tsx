@@ -12,6 +12,7 @@ export default function CheckAnswerButton({
   setStreakCount,
   shake,
   setShake,
+  setAlreadyGuessedCapitals,
 }: CheckButtonProps) {
   const router = useRouter();
 
@@ -20,7 +21,8 @@ export default function CheckAnswerButton({
 
     if (userInput.toLowerCase() === answer.toLowerCase()) {
       setStreakCount(streakCount + 1);
-      // Trigger confetti with options
+      setAlreadyGuessedCapitals((prevState) => [...prevState, answer]);
+      // Trigger confetti when guess is correct
       party.confetti(e.target as HTMLElement, {
         count: party.variation.range(20, 40),
       });
