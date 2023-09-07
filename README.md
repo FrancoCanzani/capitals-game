@@ -16,19 +16,19 @@ To run the Countries Game locally, follow these steps:
 
 1. Clone the repository to your local machine:
 
-git clone https://github.com/your-username/countries-game.git
+> git clone https://github.com/FrancoCanzani/countries-game
 
 2. Navigate to the project directory:
 
-cd countries-game
+> cd countries-game
 
 3. Install the project dependencies:
 
-npm install
+> npm install
 
 4. Start the development server:
 
-npm run dev
+> npm run dev
 
 5. Open your browser and access the app at [http://localhost:3000](http://localhost:3000).
 
