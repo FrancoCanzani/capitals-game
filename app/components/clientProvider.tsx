@@ -1,11 +1,11 @@
 'use client';
 
-import AnswerInput from './answerInput';
+import AnswerForm from './answerForm';
 import Header from './header';
 import { Country } from '@/utils/types';
 import { useEffect, useState } from 'react';
 import CountryInformation from './countryInformation';
-import generateRandomNumber from '@/utils/generateRandomNumber';
+import generateRandomCountry from '@/utils/generateRandomCountry';
 
 export default function ClientProvider({
   countries,
@@ -13,23 +13,28 @@ export default function ClientProvider({
   countries: Country[];
 }) {
   const [streakCount, setStreakCount] = useState(0);
-  const [randomNumber, setRandomNumber] = useState(generateRandomNumber());
+  const [alreadyGuessedCapitals, setAlreadyGuessedCapitals] = useState<
+    string[]
+  >([]);
   const [country, setCountry] = useState<Country | null>(null);
 
   useEffect(() => {
     // This usEffect will prevent Hydration errors as the country depends on a random number and Server and Client won't match
-    setCountry(countries[randomNumber]);
-  }, [randomNumber, countries]);
+    setCountry(generateRandomCountry(countries, alreadyGuessedCapitals));
+  }, [countries, alreadyGuessedCapitals]);
 
   return (
     <>
       <Header streakCount={streakCount} />
       <CountryInformation country={country} />
-      <AnswerInput
+      <AnswerForm
+        countries={countries}
         answer={country?.capital[0] ?? null}
         setStreakCount={setStreakCount}
         streakCount={streakCount}
-        setRandomNumber={setRandomNumber}
+        setCountry={setCountry}
+        alreadyGuessedCapitals={alreadyGuessedCapitals}
+        setAlreadyGuessedCapitals={setAlreadyGuessedCapitals}
       />
     </>
   );

@@ -4,18 +4,25 @@ import { Dispatch, SetStateAction } from 'react';
 import { useState } from 'react';
 import LetterHider from './letterHider';
 import CheckAnswerButton from './buttons/checkAnswerButton';
-import SkipButton from './buttons/skipButton';
+import SkipAnswerButton from './buttons/skipAnswerButton';
+import { Country } from '@/utils/types';
 
-export default function AnswerInput({
+export default function AnswerForm({
   answer,
   streakCount,
   setStreakCount,
-  setRandomNumber,
+  countries,
+  alreadyGuessedCapitals,
+  setAlreadyGuessedCapitals,
+  setCountry,
 }: {
   answer: string | null;
   streakCount: number;
   setStreakCount: Dispatch<SetStateAction<number>>;
-  setRandomNumber: Dispatch<SetStateAction<number>>;
+  alreadyGuessedCapitals: string[];
+  setAlreadyGuessedCapitals: Dispatch<SetStateAction<string[]>>;
+  countries: Country[];
+  setCountry: Dispatch<SetStateAction<Country | null>>;
 }) {
   const [userInput, setUserInput] = useState<string>('');
   const [revealAnswer, setRevealAnswer] = useState(false);
@@ -55,15 +62,22 @@ export default function AnswerInput({
           streakCount={streakCount}
           shake={shake}
           setShake={setShake}
+          countries={countries}
+          setCountry={setCountry}
+          alreadyGuessedCapitals={alreadyGuessedCapitals}
+          setAlreadyGuessedCapitals={setAlreadyGuessedCapitals}
         />
-        <SkipButton
+        <SkipAnswerButton
           userInput={userInput}
           setUserInput={setUserInput}
           answer={answer}
           setStreakCount={setStreakCount}
           streakCount={streakCount}
           setRevealAnswer={setRevealAnswer}
-          setRandomNumber={setRandomNumber}
+          countries={countries}
+          setCountry={setCountry}
+          alreadyGuessedCapitals={alreadyGuessedCapitals}
+          setAlreadyGuessedCapitals={setAlreadyGuessedCapitals}
         />
       </div>
     </form>

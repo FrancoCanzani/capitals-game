@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
 import party from 'party-js';
-import { useRouter } from 'next/navigation';
 import { FormEvent } from 'react';
 import { CheckButtonProps } from '@/utils/types';
+import generateRandomCountry from '@/utils/generateRandomCountry';
 
 export default function CheckAnswerButton({
   userInput,
@@ -12,21 +11,24 @@ export default function CheckAnswerButton({
   setStreakCount,
   shake,
   setShake,
+  countries,
+  setCountry,
+  alreadyGuessedCapitals,
+  setAlreadyGuessedCapitals,
 }: CheckButtonProps) {
-  const router = useRouter();
-
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
 
     if (userInput.toLowerCase() === answer?.toLowerCase()) {
       setStreakCount(streakCount + 1);
+      setAlreadyGuessedCapitals((prevState) => [...prevState, answer]);
       // Trigger confetti with options
       party.confetti(e.target as HTMLElement, {
         count: party.variation.range(20, 40),
       });
 
       setTimeout(() => {
-        router.refresh();
+        setCountry(generateRandomCountry(countries, alreadyGuessedCapitals));
         setUserInput('');
       }, 500);
     } else {
@@ -42,7 +44,7 @@ export default function CheckAnswerButton({
       onClick={handleSubmit}
       type='submit'
       className={`bg-black w-2/3 text-white rounded-sm px-3 py-3 font-semibold ${
-        shake ? 'shake' : '' // Apply the 'shake' class when shaking is true
+        shake ? 'shake' : '' // Apply the 'shake' class when guess is incorrect or empty
       }`}
     >
       Check
