@@ -3,7 +3,7 @@ export default function LetterHider({
   userInput,
   revealAnswer,
 }: {
-  answer: string;
+  answer: string | null;
   userInput: string;
   revealAnswer: boolean;
 }) {

@@ -31,16 +31,17 @@ type Country = {
 interface SkipButtonProps {
   userInput: string;
   setUserInput: Dispatch<SetStateAction<string>>;
-  answer: string;
+  answer: string | null;
   streakCount: number;
   setStreakCount: Dispatch<SetStateAction<number>>;
   setRevealAnswer: Dispatch<SetStateAction<boolean>>;
+  setRandomNumber: Dispatch<SetStateAction<number>>;
 }
 
 interface CheckButtonProps {
   userInput: string;
   setUserInput: Dispatch<SetStateAction<string>>;
-  answer: string;
+  answer: string | null;
   streakCount: number;
   setStreakCount: Dispatch<SetStateAction<number>>;
   shake: boolean;

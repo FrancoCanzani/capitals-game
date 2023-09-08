@@ -3,14 +3,31 @@
 import Image from 'next/image';
 import { Country } from '@/utils/types';
 
-export default function CountryInformation({ country }: { country: Country }) {
+export default function CountryInformation({
+  country,
+}: {
+  country: Country | null;
+}) {
+  if (!country) {
+    // Handle the case when country is null or uninitialized
+    return (
+      <div className='flex flex-col py-8 md:py-6 items-center animate-fade animate-ease-in-out'>
+        <p>Loading country information...</p>
+      </div>
+    );
+  }
+
   const currencies = Object.values(country.currencies)
     .map((currency) => `${currency.name} (${currency.symbol})`)
     .join(', ');
   const languages = Object.values(country.languages).join(', ');
 
   return (
-    <div className='flex flex-col py-8 md:py-6 items-center animate-fade animate-ease-in-out'>
+    <div
+      // Key so react knows the country changed and triggers a re render with the fade-in animation
+      key={country.capital[0]}
+      className='flex flex-col py-8 md:py-6 items-center animate-fade animate-ease-in-out animate-duration-250'
+    >
       <div className='h-44 w-72 relative shadow-2xl shadow-amber-50'>
         <Image
           src={country.flags.svg ?? country.flags.png}

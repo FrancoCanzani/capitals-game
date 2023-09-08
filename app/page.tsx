@@ -1,6 +1,4 @@
-import CountryInformation from './components/countryInformation';
 import ClientProvider from './components/clientProvider';
-import generateRandomNumber from '@/utils/generateRandomNumber';
 import Faq from './components/faq/faq';
 import { Country } from '@/utils/types';
 
@@ -19,7 +17,7 @@ async function getCountries() {
 
   // Filter out countries without a capital like Antarctica
   const countriesWithCapital = countries.filter(
-    (country: Country) => country.capital && country.capital.length > 0
+    (country: Country) => country.capital[0] && country.capital[0].length > 0
   );
 
   return countriesWithCapital;
@@ -27,14 +25,10 @@ async function getCountries() {
 
 export default async function Home() {
   const countries = await getCountries();
-  const randomNumber = generateRandomNumber();
 
   return (
     <main className='flex flex-col items-center px-2 md:px-0'>
-      <ClientProvider country={countries[randomNumber]}>
-        {/* Server component */}
-        <CountryInformation country={countries[randomNumber]} />
-      </ClientProvider>
+      <ClientProvider countries={countries} />
       <Faq />
     </main>
   );

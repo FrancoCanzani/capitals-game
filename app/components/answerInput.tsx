@@ -10,10 +10,12 @@ export default function AnswerInput({
   answer,
   streakCount,
   setStreakCount,
+  setRandomNumber,
 }: {
-  answer: string;
+  answer: string | null;
   streakCount: number;
   setStreakCount: Dispatch<SetStateAction<number>>;
+  setRandomNumber: Dispatch<SetStateAction<number>>;
 }) {
   const [userInput, setUserInput] = useState<string>('');
   const [revealAnswer, setRevealAnswer] = useState(false);
@@ -61,6 +63,7 @@ export default function AnswerInput({
           setStreakCount={setStreakCount}
           streakCount={streakCount}
           setRevealAnswer={setRevealAnswer}
+          setRandomNumber={setRandomNumber}
         />
       </div>
     </form>

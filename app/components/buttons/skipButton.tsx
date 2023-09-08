@@ -1,17 +1,19 @@
 import { useRouter } from 'next/navigation';
 import { SkipButtonProps } from '@/utils/types';
+import generateRandomNumber from '@/utils/generateRandomNumber';
 
 export default function SkipButton({
   setUserInput,
   setStreakCount,
   setRevealAnswer,
+  setRandomNumber,
 }: SkipButtonProps) {
   function handleSkip() {
     setStreakCount(0);
     setRevealAnswer(true);
     setTimeout(() => {
+      setRandomNumber(generateRandomNumber());
       setRevealAnswer(false);
-      router.refresh();
     }, 1200);
     setUserInput('');
   }

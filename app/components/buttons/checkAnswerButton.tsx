@@ -18,7 +18,7 @@ export default function CheckAnswerButton({
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
 
-    if (userInput.toLowerCase() === answer.toLowerCase()) {
+    if (userInput.toLowerCase() === answer?.toLowerCase()) {
       setStreakCount(streakCount + 1);
       // Trigger confetti with options
       party.confetti(e.target as HTMLElement, {
