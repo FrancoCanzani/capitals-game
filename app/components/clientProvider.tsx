@@ -13,6 +13,7 @@ export default function ClientProvider({ countries }: { countries: Country[] }) 
   const [country, setCountry] = useState<Country | null>(null);
 
   useEffect(() => {
+    alreadyGuessedCapitals.length === 246 && setAlreadyGuessedCapitals([]);
     // This usEffect will prevent Hydration errors as the country depends on a random number and Server and Client won't match
     setCountry(generateNextCountry(countries, alreadyGuessedCapitals));
   }, [countries, alreadyGuessedCapitals]);

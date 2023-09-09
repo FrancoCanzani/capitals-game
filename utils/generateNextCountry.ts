@@ -9,11 +9,13 @@ export default function generateNextCountry(countries: Country[], guessedCountri
   const mediumCountries = remainingCountries.filter((country) => getCountryDifficulty(country) === "Medium");
   const hardCountries = remainingCountries.filter((country) => getCountryDifficulty(country) === "Hard");
 
-  if (guessedCountries.length <= 45) {
+  if (easyCountries.length > 0) {
     return easyCountries[generateRandomNumber(easyCountries.length)];
-  } else if (guessedCountries.length > 45 && guessedCountries.length < 100) {
+  } else if (mediumCountries.length > 0) {
     return mediumCountries[generateRandomNumber(mediumCountries.length)];
-  } else {
+  } else if (hardCountries.length > 0) {
     return hardCountries[generateRandomNumber(hardCountries.length)];
+  } else {
+    return null; // No remaining countries
   }
 }

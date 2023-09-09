@@ -9,17 +9,23 @@ enum CapitalDifficulty {
 export default function getCountryDifficulty(country: Country): CapitalDifficulty {
   const { population, continents, name } = country;
 
-  // Check if the country is in Europe or North America
-  if (continents.includes("Europe") || continents.includes("North America")) {
-    if (population > 5000000) {
-      return CapitalDifficulty.EASY;
-    } else if (continents.includes("Europe") && population > 0) {
-      return CapitalDifficulty.MEDIUM;
-    }
+  // Helper function to check if a country is in a specific continent
+  const isInContinent = (continent: string) => continents.includes(continent);
+
+  // Check for special cases
+  if (name.common === "Vatican City") {
+    return CapitalDifficulty.EASY;
   }
 
-  // Check if the country is in Asia
-  if (continents.includes("Asia")) {
+  // Check by continent
+  if (isInContinent("Europe") || isInContinent("North America")) {
+    if (population < 1000000) {
+      return CapitalDifficulty.HARD;
+    }
+    return CapitalDifficulty.MEDIUM;
+  }
+
+  if (isInContinent("Asia")) {
     if (population > 1000000000) {
       return CapitalDifficulty.EASY;
     } else if (population > 100000000) {
@@ -27,24 +33,22 @@ export default function getCountryDifficulty(country: Country): CapitalDifficult
     }
   }
 
-  // Check if the country is in Oceania
-  if (continents.includes("Oceania")) {
+  if (isInContinent("Oceania")) {
     if (name.common === "Australia" || name.common === "New Zealand") {
       return CapitalDifficulty.EASY;
-    } else {
+    }
+    if (population < 1000000) {
       return CapitalDifficulty.HARD;
     }
   }
 
-  // Check if the country is in Africa
-  if (continents.includes("Africa")) {
+  if (isInContinent("Africa")) {
     if (population > 100000000) {
       return CapitalDifficulty.MEDIUM;
     }
   }
 
-  // Check if the country is in South America
-  if (continents.includes("South America")) {
+  if (isInContinent("South America")) {
     if (population > 40000000) {
       return CapitalDifficulty.EASY;
     } else if (population > 3000000) {
