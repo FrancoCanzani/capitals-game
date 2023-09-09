@@ -1,21 +1,15 @@
-'use client';
+"use client";
 
-import AnswerForm from './answerForm';
-import Header from './header';
-import { Country } from '@/utils/types';
-import { useEffect, useState } from 'react';
-import CountryInformation from './countryInformation';
-import generateRandomCountry from '@/utils/generateRandomCountry';
+import AnswerForm from "./answerForm";
+import Header from "./header";
+import { Country } from "@/utils/types";
+import { useEffect, useState } from "react";
+import CountryInformation from "./countryInformation";
+import generateRandomCountry from "@/utils/generateRandomCountry";
 
-export default function ClientProvider({
-  countries,
-}: {
-  countries: Country[];
-}) {
+export default function ClientProvider({ countries }: { countries: Country[] }) {
   const [streakCount, setStreakCount] = useState(0);
-  const [alreadyGuessedCapitals, setAlreadyGuessedCapitals] = useState<
-    string[]
-  >([]);
+  const [alreadyGuessedCapitals, setAlreadyGuessedCapitals] = useState<string[]>([]);
   const [country, setCountry] = useState<Country | null>(null);
 
   useEffect(() => {
@@ -30,9 +24,9 @@ export default function ClientProvider({
       <AnswerForm
         countries={countries}
         answer={country?.capital[0] ?? null}
+        setCountry={setCountry}
         setStreakCount={setStreakCount}
         streakCount={streakCount}
-        setCountry={setCountry}
         alreadyGuessedCapitals={alreadyGuessedCapitals}
         setAlreadyGuessedCapitals={setAlreadyGuessedCapitals}
       />
