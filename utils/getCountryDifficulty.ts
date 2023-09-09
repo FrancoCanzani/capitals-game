@@ -19,10 +19,13 @@ export default function getCountryDifficulty(country: Country): CapitalDifficult
 
   // Check by continent
   if (isInContinent("Europe") || isInContinent("North America")) {
-    if (population < 1000000) {
-      return CapitalDifficulty.HARD;
+    // Adjust the population threshold for "Easy" difficulty
+    if (population > 5000000) {
+      return CapitalDifficulty.EASY;
+    } else if (population > 1000000) {
+      return CapitalDifficulty.MEDIUM;
     }
-    return CapitalDifficulty.MEDIUM;
+    return CapitalDifficulty.HARD;
   }
 
   if (isInContinent("Asia")) {
@@ -37,9 +40,10 @@ export default function getCountryDifficulty(country: Country): CapitalDifficult
     if (name.common === "Australia" || name.common === "New Zealand") {
       return CapitalDifficulty.EASY;
     }
-    if (population < 1000000) {
-      return CapitalDifficulty.HARD;
+    if (population > 1000000) {
+      return CapitalDifficulty.MEDIUM;
     }
+    return CapitalDifficulty.HARD;
   }
 
   if (isInContinent("Africa")) {

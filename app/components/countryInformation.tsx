@@ -23,7 +23,7 @@ export default function CountryInformation({ country }: { country: Country | nul
     <div
       // Key so react knows the country changed and triggers a re render with the fade-in animation
       key={country.capital[0]}
-      className="flex flex-col py-2 items-center animate-fade animate-ease-in-out animate-duration-300"
+      className="flex flex-col py-2 items-center animate-fade animate-ease-in-out animate-duration-[400]"
     >
       <CountryDifficultyIndicator country={country} />
       <div className="h-44 w-72 relative shadow-2xl shadow-amber-50">

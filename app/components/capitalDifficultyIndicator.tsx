@@ -13,7 +13,7 @@ export default function CountryDifficultyIndicator({ country }: { country: Count
             ? "bg-yellow-500 w-2/3"
             : "bg-red-500 w-full"
         }
-        flex font-semibold animate-fade-right animate-duration-[500] animate-ease-in-out py-0.5 text-sm shadow-sm items-center rounded-md justify-center`}
+        flex font-semibold animate-fade-right animate-duration-[400] animate-ease-in-out py-0.5 text-sm shadow-sm items-center rounded-md justify-center`}
       >
         {getCountryDifficulty(country)}
       </span>
