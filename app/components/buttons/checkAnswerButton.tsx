@@ -1,7 +1,6 @@
-import party from 'party-js';
-import { FormEvent } from 'react';
-import { CheckButtonProps } from '@/utils/types';
-import generateRandomCountry from '@/utils/generateRandomCountry';
+import party from "party-js";
+import { FormEvent } from "react";
+import { CheckButtonProps } from "@/utils/types";
 
 export default function CheckAnswerButton({
   userInput,
@@ -11,9 +10,6 @@ export default function CheckAnswerButton({
   setStreakCount,
   shake,
   setShake,
-  countries,
-  setCountry,
-  alreadyGuessedCapitals,
   setAlreadyGuessedCapitals,
 }: CheckButtonProps) {
   function handleSubmit(e: FormEvent) {
@@ -21,15 +17,15 @@ export default function CheckAnswerButton({
 
     if (userInput.toLowerCase() === answer?.toLowerCase()) {
       setStreakCount(streakCount + 1);
-      setAlreadyGuessedCapitals((prevState) => [...prevState, answer]);
-      // Trigger confetti with options
+      // Trigger confetti
       party.confetti(e.target as HTMLElement, {
         count: party.variation.range(20, 40),
       });
 
       setTimeout(() => {
-        setCountry(generateRandomCountry(countries, alreadyGuessedCapitals));
-        setUserInput('');
+        // Setting a new guessed capital will trigger a new country as it is inside the dependency array of the set country useEffect
+        setAlreadyGuessedCapitals((prevState) => [...prevState, answer]);
+        setUserInput("");
       }, 500);
     } else {
       setShake(true);
@@ -42,9 +38,9 @@ export default function CheckAnswerButton({
   return (
     <button
       onClick={handleSubmit}
-      type='submit'
+      type="submit"
       className={`bg-black w-2/3 text-white rounded-sm px-3 py-3 font-semibold ${
-        shake ? 'shake' : '' // Apply the 'shake' class when guess is incorrect or empty
+        shake ? "shake" : "" // Apply the 'shake' class when guess is incorrect or empty
       }`}
     >
       Check

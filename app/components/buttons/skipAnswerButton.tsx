@@ -1,5 +1,5 @@
-import { SkipButtonProps } from '@/utils/types';
-import generateRandomCountry from '@/utils/generateRandomCountry';
+import { SkipButtonProps } from "@/utils/types";
+import generateNextCountry from "@/utils/generateNextCountry";
 
 export default function SkipAnswerButton({
   setUserInput,
@@ -13,17 +13,17 @@ export default function SkipAnswerButton({
     setStreakCount(0);
     setRevealAnswer(true);
     setTimeout(() => {
-      setCountry(generateRandomCountry(countries, alreadyGuessedCapitals));
+      setCountry(generateNextCountry(countries, alreadyGuessedCapitals));
       setRevealAnswer(false);
     }, 1200);
-    setUserInput('');
+    setUserInput("");
   }
 
   return (
     <button
       onClick={handleSkip}
-      type='button'
-      className='bg-red-600 w-1/3 text-white rounded-sm px-3 py-3 font-semibold'
+      type="button"
+      className="bg-red-600 w-1/3 text-white rounded-sm px-3 py-3 font-semibold"
     >
       Skip
     </button>

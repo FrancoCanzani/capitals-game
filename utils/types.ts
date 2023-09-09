@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, SetStateAction } from "react";
 
 type Country = {
   flags: {
@@ -49,9 +49,6 @@ interface CheckButtonProps {
   setStreakCount: Dispatch<SetStateAction<number>>;
   shake: boolean;
   setShake: Dispatch<SetStateAction<boolean>>;
-  countries: Country[];
-  alreadyGuessedCapitals: string[];
-  setCountry: Dispatch<SetStateAction<Country | null>>;
   setAlreadyGuessedCapitals: Dispatch<SetStateAction<string[]>>;
 }
 

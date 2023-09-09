@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Country } from "@/utils/types";
-import getCountryDifficulty from "@/utils/getCountryDifficulty";
+import CountryDifficultyIndicator from "./capitalDifficultyIndicator";
 
 export default function CountryInformation({ country }: { country: Country | null }) {
   if (!country) {
@@ -23,23 +23,9 @@ export default function CountryInformation({ country }: { country: Country | nul
     <div
       // Key so react knows the country changed and triggers a re render with the fade-in animation
       key={country.capital[0]}
-      className="flex flex-col py-2 items-center animate-fade animate-ease-in-out animate-duration-250"
+      className="flex flex-col py-2 items-center animate-fade animate-ease-in-out animate-duration-300"
     >
-      <div className="my-4 rounded-md bg-white w-40">
-        <span
-          className={`
-        ${
-          getCountryDifficulty(country) === "Easy"
-            ? "bg-green-500 w-1/3"
-            : getCountryDifficulty(country) === "Medium"
-            ? "bg-yellow-500 w-2/3"
-            : "bg-red-500 w-full"
-        }
-        flex font-semibold py-0.5 text-sm shadow-sm items-center rounded-md justify-center`}
-        >
-          {getCountryDifficulty(country)}
-        </span>
-      </div>
+      <CountryDifficultyIndicator country={country} />
       <div className="h-44 w-72 relative shadow-2xl shadow-amber-50">
         <Image
           src={country.flags.svg ?? country.flags.png}
@@ -49,6 +35,7 @@ export default function CountryInformation({ country }: { country: Country | nul
           style={{ objectFit: "cover" }}
           className="rounded-md bg-cover"
         />
+        CountryDifficultyIndicator
       </div>
       <div className="mt-12 md:mt-10 mb-5">
         <p className="text-center font-semibold text-xl">{country.name.common}</p>
