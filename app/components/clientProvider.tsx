@@ -20,7 +20,7 @@ export default function ClientProvider({ countries }: { countries: Country[] }) 
   }, [countries, alreadyGuessedCountries]);
 
   return (
-    <>
+    <main className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/2 p-2 mx-2">
       <Header streakCount={streakCount} />
       <CountryInformation country={country} countries={countries} alreadyGuessedCountries={alreadyGuessedCountries} />
       <AnswerForm
@@ -34,6 +34,6 @@ export default function ClientProvider({ countries }: { countries: Country[] }) 
         setAlreadyGuessedCountries={setAlreadyGuessedCountries}
       />
       <AlreadyGuessedCountriesHistory alreadyGuessedCountries={alreadyGuessedCountries} countries={countries} />
-    </>
+    </main>
   );
 }

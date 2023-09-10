@@ -37,8 +37,8 @@ export default function CountryInformation({
         <CountryDifficultyIndicator country={country} />
         <span>{`${alreadyGuessedCountries.length}/${countries.length}`}</span>
       </div>
-      <div className="flex w-full shadow-2xl shadow-amber-50 flex-col sm:flex-row items-start justify-start space-y-3 sm:space-y-0 sm:space-x-6">
-        <div className="h-52 w-full sm:w-1/2 relative">
+      <div className="flex w-full shadow-2xl shadow-amber-50 flex-col lg:flex-row items-start justify-start space-y-3 lg:space-y-0 lg:space-x-6">
+        <div className="h-52 w-full lg:w-1/2 relative">
           <Image
             src={country.flags.svg ?? country.flags.png}
             alt={`${country.flags.alt}`}
@@ -48,25 +48,31 @@ export default function CountryInformation({
             className="rounded-md bg-cover"
           />
         </div>
-        <div className="text-start h-52 w-full sm:w-1/2 gap-2 text-sm">
-          <p className=" bg-slate-700 text-gray-100 mb-2 px-2 truncate py-1 rounded-md">
-            <span className="font-semibold">Country:</span> {country.name.common}
-          </p>
-          <p className="px-2 py-1 rounded-md mb-2 truncate bg-slate-100">
-            <span className="font-semibold">Official name:</span> {country.name.official}
-          </p>
-          <p className="bg-slate-100 mb-2 px-2 py-1 rounded-md">
-            <span className="font-semibold">Continent:</span> {country.continents[0]}
-          </p>
-          <p className="px-2 py-1 capitalize truncate mb-2 bg-slate-100 rounded-md">
-            <span className="font-semibold">Currency:</span> {currencies}
-          </p>
-          <p className="bg-slate-100 px-2 py-1 rounded-md mb-2 truncate">
-            <span className="font-semibold">Language:</span> {languages}
-          </p>
-          <p className="bg-slate-100 rounded-md px-2 py-1">
-            <span className="font-semibold">Population:</span> {country.population.toLocaleString()}
-          </p>
+        <div className="text-start capitalize h-52 w-full max-w-full lg:w-1/2 gap-2 text-sm">
+          <div className="bg-slate-700 flex gap-1 max-w-full text-gray-100 mb-2 px-2 py-1 rounded-md">
+            <span className="font-semibold min-w-max">Country:</span>
+            <p className="truncate max-w-max">{country.name.common}</p>
+          </div>
+          <div className="bg-slate-100 px-2 py-1 max-w-full flex items-center gap-1 rounded-md mb-2">
+            <span className="font-semibold min-w-max">Official Name:</span>
+            <p className="truncate max-w-max">{country.name.official}</p>
+          </div>
+          <div className="bg-slate-100 px-2 py-1 flex max-w-full items-center gap-1 rounded-md mb-2">
+            <span className="font-semibold min-w-max">Continent:</span>
+            <p className="truncate max-w-max">{country.continents[0]}</p>
+          </div>
+          <div className="bg-slate-100 px-2 py-1 max-w-full flex items-center gap-1 rounded-md mb-2">
+            <span className="font-semibold min-w-max">Currency:</span>
+            <p className="truncate max-w-max">{currencies}</p>
+          </div>
+          <div className="bg-slate-100 px-2 py-1 max-w-full flex items-center gap-1 rounded-md mb-2">
+            <span className="font-semibold min-w-max">Language:</span>
+            <p className="truncate max-w-max">{languages}</p>
+          </div>
+          <div className="bg-slate-100 px-2 py-1 max-w-full flex items-center gap-1 rounded-md mb-2">
+            <span className="font-semibold min-w-max">Population:</span>
+            <p className="truncate">{country.population.toLocaleString()}</p>
+          </div>
         </div>
       </div>
     </div>

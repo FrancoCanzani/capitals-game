@@ -1,11 +1,9 @@
 import { Copyright } from "lucide-react";
-const leagueSpartan = League_Spartan({ subsets: ["latin"] });
-import { League_Spartan } from "next/font/google";
 import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="text-xs max-w-5xl w-full flex items-center justify-evenly py-2 mt-2">
+    <footer className="text-xs absolute bottom-0 rounded-b-md sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/2 p-2 mx-2 bg-slate-700 text-gray-100 w-full flex items-center justify-evenly py-2 mt-4">
       <div className="flex items-center gap-2">
         <Copyright size={15} />
         Copyright 2023{" "}

@@ -42,7 +42,7 @@ export default function AnswerForm({
         spellCheck="false"
         autoFocus
         id="guess"
-        className={`rounded-sm p-2 mb-2 border-2 ${shake ? "border-red-500" : "border-gray-100"}`}
+        className={`rounded-sm p-2 my-2 border-2 ${shake ? "border-red-500" : "border-gray-100"}`}
         placeholder="Answer"
         value={userInput}
         autoComplete="off"

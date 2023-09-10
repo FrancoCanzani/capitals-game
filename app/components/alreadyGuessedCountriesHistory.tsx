@@ -11,7 +11,7 @@ export default function AlreadyGuessedCountriesHistory({
 }) {
   return (
     <section className="w-full">
-      <h2 className="font-semibold w-full border-b flex items-center gap-1">
+      <h2 className="font-semibold z-50 w-full border-b flex items-center gap-1">
         <History size={18} />
         History
       </h2>
@@ -19,11 +19,11 @@ export default function AlreadyGuessedCountriesHistory({
         {alreadyGuessedCountries.slice(0, 5).map((country: Country, index) => (
           <li
             className={`${index == 0 && "animate-fade-down animate-duration-500 animate-ease-in-out"} ${
-              index == alreadyGuessedCountries.length - 1 && "border-b"
+              index == alreadyGuessedCountries.length - 1 && "border-b mb-6"
             }  py-2 flex flex-col items-start text-sm justify-between border-b`}
             key={country.name.common}
           >
-            <div className="flex w-full mb-2 font-semibold items-center justify-between">
+            <div className="flex w-full font-semibold items-center justify-between">
               <CountryDifficultyIndicator country={country} />
               <span>{`${alreadyGuessedCountries.length - index}/${countries.length}`}</span>
             </div>
