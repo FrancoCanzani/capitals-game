@@ -34,9 +34,10 @@ interface SkipButtonProps {
   answer: string | null;
   streakCount: number;
   countries: Country[];
-  alreadyGuessedCapitals: string[];
+  alreadyGuessedCountries: Country[];
   setCountry: Dispatch<SetStateAction<Country | null>>;
-  setAlreadyGuessedCapitals: Dispatch<SetStateAction<string[]>>;
+  country: Country | null;
+  setAlreadyGuessedCountries: Dispatch<SetStateAction<Country[]>>;
   setStreakCount: Dispatch<SetStateAction<number>>;
   setRevealAnswer: Dispatch<SetStateAction<boolean>>;
 }
@@ -48,8 +49,9 @@ interface CheckButtonProps {
   streakCount: number;
   setStreakCount: Dispatch<SetStateAction<number>>;
   shake: boolean;
+  country: Country | null;
   setShake: Dispatch<SetStateAction<boolean>>;
-  setAlreadyGuessedCapitals: Dispatch<SetStateAction<string[]>>;
+  setAlreadyGuessedCountries: Dispatch<SetStateAction<Country[]>>;
 }
 
 export type { Country, SkipButtonProps, CheckButtonProps };

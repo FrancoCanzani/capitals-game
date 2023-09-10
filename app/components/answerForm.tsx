@@ -12,16 +12,18 @@ export default function AnswerForm({
   streakCount,
   setStreakCount,
   countries,
-  alreadyGuessedCapitals,
-  setAlreadyGuessedCapitals,
+  alreadyGuessedCountries,
+  setAlreadyGuessedCountries,
+  country,
   setCountry,
 }: {
   answer: string | null;
   streakCount: number;
   setStreakCount: Dispatch<SetStateAction<number>>;
-  alreadyGuessedCapitals: string[];
-  setAlreadyGuessedCapitals: Dispatch<SetStateAction<string[]>>;
+  alreadyGuessedCountries: Country[];
+  setAlreadyGuessedCountries: Dispatch<SetStateAction<Country[]>>;
   countries: Country[];
+  country: Country | null;
   setCountry: Dispatch<SetStateAction<Country | null>>;
 }) {
   const [userInput, setUserInput] = useState<string>("");
@@ -56,7 +58,8 @@ export default function AnswerForm({
           streakCount={streakCount}
           shake={shake}
           setShake={setShake}
-          setAlreadyGuessedCapitals={setAlreadyGuessedCapitals}
+          country={country}
+          setAlreadyGuessedCountries={setAlreadyGuessedCountries}
         />
         <SkipAnswerButton
           userInput={userInput}
@@ -66,9 +69,10 @@ export default function AnswerForm({
           streakCount={streakCount}
           setRevealAnswer={setRevealAnswer}
           countries={countries}
+          country={country}
           setCountry={setCountry}
-          alreadyGuessedCapitals={alreadyGuessedCapitals}
-          setAlreadyGuessedCapitals={setAlreadyGuessedCapitals}
+          alreadyGuessedCountries={alreadyGuessedCountries}
+          setAlreadyGuessedCountries={setAlreadyGuessedCountries}
         />
       </div>
     </form>

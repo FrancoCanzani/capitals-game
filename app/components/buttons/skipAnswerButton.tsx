@@ -7,13 +7,13 @@ export default function SkipAnswerButton({
   setRevealAnswer,
   countries,
   setCountry,
-  alreadyGuessedCapitals,
+  alreadyGuessedCountries,
 }: SkipButtonProps) {
   function handleSkip() {
     setStreakCount(0);
     setRevealAnswer(true);
     setTimeout(() => {
-      setCountry(generateNextCountry(countries, alreadyGuessedCapitals));
+      setCountry(generateNextCountry(countries, alreadyGuessedCountries));
       setRevealAnswer(false);
     }, 1200);
     setUserInput("");

@@ -12,17 +12,27 @@ export default function getCountryDifficulty(country: Country): CapitalDifficult
   // Helper function to check if a country is in a specific continent
   const isInContinent = (continent: string) => continents.includes(continent);
 
+  const specialCases = ["Vatican City", "Monaco"];
+
   // Check for special cases
-  if (name.common === "Vatican City") {
+  if (specialCases.includes(name.common)) {
     return CapitalDifficulty.EASY;
   }
 
   // Check by continent
-  if (isInContinent("Europe") || isInContinent("North America")) {
-    // Adjust the population threshold for "Easy" difficulty
-    if (population > 5000000) {
+  if (isInContinent("Europe")) {
+    if (population > 4000000) {
       return CapitalDifficulty.EASY;
-    } else if (population > 1000000) {
+    } else if (population > 300000) {
+      return CapitalDifficulty.MEDIUM;
+    }
+    return CapitalDifficulty.HARD;
+  }
+
+  if (isInContinent("North America")) {
+    if (population > 20000000) {
+      return CapitalDifficulty.EASY;
+    } else if (population > 2000000) {
       return CapitalDifficulty.MEDIUM;
     }
     return CapitalDifficulty.HARD;

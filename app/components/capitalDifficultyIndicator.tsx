@@ -3,20 +3,21 @@ import getCountryDifficulty from "@/utils/getCountryDifficulty";
 
 export default function CountryDifficultyIndicator({ country }: { country: Country }) {
   return (
-    <div className="my-4 rounded-md overflow-hidden bg-white w-40">
-      <span
+    <div className="flex items-center justify-center gap-2">
+      <div
         className={`
-        ${
-          getCountryDifficulty(country) === "Easy"
-            ? "bg-green-500 w-1/3"
-            : getCountryDifficulty(country) === "Medium"
-            ? "bg-yellow-500 w-2/3"
-            : "bg-red-500 w-full"
-        }
-        flex font-semibold animate-fade-right animate-duration-[400] animate-ease-in-out py-0.5 text-sm shadow-sm items-center rounded-md justify-center`}
+    ${
+      getCountryDifficulty(country) === "Easy"
+        ? "bg-green-500"
+        : getCountryDifficulty(country) === "Medium"
+        ? "bg-yellow-500"
+        : "bg-red-500"
+    }
+    h-3 w-3 rounded-full flex items-center justify-center`}
       >
-        {getCountryDifficulty(country)}
-      </span>
+        <span className="text-white"></span>
+      </div>
+      <p className="font-semibold">{getCountryDifficulty(country)}</p>
     </div>
   );
 }

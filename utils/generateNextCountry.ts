@@ -2,8 +2,8 @@ import { Country } from "./types";
 import generateRandomNumber from "./generateRandomNumber";
 import getCountryDifficulty from "./getCountryDifficulty";
 
-export default function generateNextCountry(countries: Country[], guessedCountries: string[]): Country | null {
-  const remainingCountries = countries.filter((country) => !guessedCountries.includes(country.capital[0]));
+export default function generateNextCountry(countries: Country[], guessedCountries: Country[]): Country | null {
+  const remainingCountries = countries.filter((country) => !guessedCountries.includes(country));
 
   const easyCountries = remainingCountries.filter((country) => getCountryDifficulty(country) === "Easy");
   const mediumCountries = remainingCountries.filter((country) => getCountryDifficulty(country) === "Medium");

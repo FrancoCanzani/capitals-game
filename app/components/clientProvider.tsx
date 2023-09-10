@@ -6,31 +6,34 @@ import { Country } from "@/utils/types";
 import { useEffect, useState } from "react";
 import CountryInformation from "./countryInformation";
 import generateNextCountry from "@/utils/generateNextCountry";
+import AlreadyGuessedCountriesHistory from "./alreadyGuessedCountriesHistory";
 
 export default function ClientProvider({ countries }: { countries: Country[] }) {
   const [streakCount, setStreakCount] = useState(0);
-  const [alreadyGuessedCapitals, setAlreadyGuessedCapitals] = useState<string[]>([]);
+  const [alreadyGuessedCountries, setAlreadyGuessedCountries] = useState<Country[]>([]);
   const [country, setCountry] = useState<Country | null>(null);
 
   useEffect(() => {
-    alreadyGuessedCapitals.length === 246 && setAlreadyGuessedCapitals([]);
+    alreadyGuessedCountries.length === countries.length && setAlreadyGuessedCountries([]);
     // This usEffect will prevent Hydration errors as the country depends on a random number and Server and Client won't match
-    setCountry(generateNextCountry(countries, alreadyGuessedCapitals));
-  }, [countries, alreadyGuessedCapitals]);
+    setCountry(generateNextCountry(countries, alreadyGuessedCountries));
+  }, [countries, alreadyGuessedCountries]);
 
   return (
     <>
       <Header streakCount={streakCount} />
-      <CountryInformation country={country} />
+      <CountryInformation country={country} countries={countries} alreadyGuessedCountries={alreadyGuessedCountries} />
       <AnswerForm
         countries={countries}
+        country={country}
         answer={country?.capital[0] ?? null}
         setCountry={setCountry}
         setStreakCount={setStreakCount}
         streakCount={streakCount}
-        alreadyGuessedCapitals={alreadyGuessedCapitals}
-        setAlreadyGuessedCapitals={setAlreadyGuessedCapitals}
+        alreadyGuessedCountries={alreadyGuessedCountries}
+        setAlreadyGuessedCountries={setAlreadyGuessedCountries}
       />
+      <AlreadyGuessedCountriesHistory alreadyGuessedCountries={alreadyGuessedCountries} countries={countries} />
     </>
   );
 }
