@@ -16,7 +16,7 @@ export default function CountryInformation({
   if (!country) {
     // Handle the case when country is null or uninitialized
     return (
-      <div className="flex flex-col py-8 md:py-6 items-center animate-fade animate-ease-in-out">
+      <div className="animate-fade animate-ease-in-out flex flex-col items-center py-8 md:py-6">
         <p>Loading country information...</p>
       </div>
     );
@@ -31,14 +31,14 @@ export default function CountryInformation({
     <div
       // Key so react knows the country changed and triggers a re render with the fade-in animation
       key={country.capital[0]}
-      className="flex flex-col items-start w-full animate-fade animate-ease-in-out animate-duration-[400]"
+      className="animate-fade animate-ease-in-out animate-duration-[400] flex w-full flex-col items-start"
     >
-      <div className="flex my-4 items-center font-semibold text-sm justify-between w-full">
+      <div className="my-4 flex w-full items-center justify-between text-sm font-semibold dark:text-gray-200">
         <CountryDifficultyIndicator country={country} />
         <span>{`${alreadyGuessedCountries.length}/${countries.length}`}</span>
       </div>
-      <div className="flex w-full shadow-2xl shadow-amber-50 flex-col lg:flex-row items-start justify-start space-y-3 lg:space-y-0 lg:space-x-6">
-        <div className="h-52 w-full lg:w-1/2 relative">
+      <div className="flex w-full flex-col items-start justify-start space-y-3 shadow-2xl shadow-amber-50 dark:shadow-none lg:flex-row lg:space-x-6 lg:space-y-0">
+        <div className="relative h-52 w-full lg:w-1/2">
           <Image
             src={country.flags.svg ?? country.flags.png}
             alt={`${country.flags.alt}`}
@@ -48,29 +48,29 @@ export default function CountryInformation({
             className="rounded-md bg-cover"
           />
         </div>
-        <div className="text-start capitalize h-52 w-full max-w-full lg:w-1/2 gap-2 text-sm">
-          <div className="bg-slate-700 flex gap-1 max-w-full text-gray-100 mb-2 px-2 py-1 rounded-md">
-            <span className="font-semibold min-w-max">Country:</span>
-            <p className="truncate max-w-max">{country.name.common}</p>
+        <div className="h-52 w-full max-w-full gap-2 text-start text-sm capitalize lg:w-1/2">
+          <div className="mb-2 flex max-w-full gap-1 rounded-md bg-slate-700 px-2 py-1 text-gray-100 dark:text-gray-200">
+            <span className="min-w-max font-semibold">Country:</span>
+            <p className="max-w-max truncate">{country.name.common}</p>
           </div>
-          <div className="bg-slate-100 px-2 py-1 max-w-full flex items-center gap-1 rounded-md mb-2">
-            <span className="font-semibold min-w-max">Official Name:</span>
-            <p className="truncate max-w-max">{country.name.official}</p>
+          <div className="mb-2 flex max-w-full items-center gap-1 rounded-md bg-slate-100 px-2 py-1 dark:text-black">
+            <span className="min-w-max font-semibold">Official Name:</span>
+            <p className="max-w-max truncate">{country.name.official}</p>
           </div>
-          <div className="bg-slate-100 px-2 py-1 flex max-w-full items-center gap-1 rounded-md mb-2">
-            <span className="font-semibold min-w-max">Continent:</span>
-            <p className="truncate max-w-max">{country.continents[0]}</p>
+          <div className="mb-2 flex max-w-full items-center gap-1 rounded-md bg-slate-100 px-2 py-1 dark:text-black">
+            <span className="min-w-max font-semibold">Continent:</span>
+            <p className="max-w-max truncate">{country.continents[0]}</p>
           </div>
-          <div className="bg-slate-100 px-2 py-1 max-w-full flex items-center gap-1 rounded-md mb-2">
-            <span className="font-semibold min-w-max">Currency:</span>
-            <p className="truncate max-w-max">{currencies}</p>
+          <div className="mb-2 flex max-w-full items-center gap-1 rounded-md bg-slate-100 px-2 py-1 dark:text-black">
+            <span className="min-w-max font-semibold">Currency:</span>
+            <p className="max-w-max truncate">{currencies}</p>
           </div>
-          <div className="bg-slate-100 px-2 py-1 max-w-full flex items-center gap-1 rounded-md mb-2">
-            <span className="font-semibold min-w-max">Language:</span>
-            <p className="truncate max-w-max">{languages}</p>
+          <div className="mb-2 flex max-w-full items-center gap-1 rounded-md bg-slate-100 px-2 py-1 dark:text-black">
+            <span className="min-w-max font-semibold">Language:</span>
+            <p className="max-w-max truncate">{languages}</p>
           </div>
-          <div className="bg-slate-100 px-2 py-1 max-w-full flex items-center gap-1 rounded-md mb-2">
-            <span className="font-semibold min-w-max">Population:</span>
+          <div className="mb-2 flex max-w-full items-center gap-1 rounded-md bg-slate-100 px-2 py-1 dark:text-black">
+            <span className="min-w-max font-semibold">Population:</span>
             <p className="truncate">{country.population.toLocaleString()}</p>
           </div>
         </div>

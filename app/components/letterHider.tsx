@@ -8,7 +8,8 @@ export default function LetterHider({
   revealAnswer: boolean;
 }) {
   return (
-    <div className="pt-6 pb-4 md:pb-3 overflow-x-hidden flex flex-wrap items-center justify-center">
+    <fieldset className="z-50 flex flex-wrap items-center justify-center rounded-md bg-slate-100 px-2 py-1 text-sm dark:text-black">
+      <legend className="font-semibold mix-blend-difference dark:text-white">Capital:</legend>
       {answer &&
         answer
           .toLowerCase()
@@ -16,16 +17,16 @@ export default function LetterHider({
           .map((letter, index) => (
             <span
               key={index}
-              className={`mr-1 mb-1 rounded-sm lg:mb-2 basis-auto h-5 w-5 p-1 flex items-center justify-center uppercase shadow-sm text-sm font-semibold ${
+              className={`mb-1 mr-1 flex h-5 w-5 max-w-full basis-auto items-center justify-center rounded-sm font-semibold uppercase ${
                 letter === userInput.toLowerCase().split("")[index] || revealAnswer === true || letter == " "
                   ? "revealed" // Apply the revealed class
-                  : "bg-black text-black"
+                  : "bg-slate-300"
               }`}
             >
               {/* Don't render the letter so the answer can't be inspected in devtools */}
               {letter === userInput.toLowerCase().split("")[index] || revealAnswer === true ? letter : ""}
             </span>
           ))}
-    </div>
+    </fieldset>
   );
 }

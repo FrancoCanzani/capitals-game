@@ -23,7 +23,7 @@ export default function SkipAnswerButton({
     <button
       onClick={handleSkip}
       type="button"
-      className="bg-red-600 w-1/3 text-white rounded-sm px-3 py-3 font-semibold"
+      className="bg-red-600 w-1/3 text-white rounded-md px-3 py-3 font-semibold"
     >
       Skip
     </button>

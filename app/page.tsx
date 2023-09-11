@@ -4,9 +4,5 @@ import getCountries from "../utils/getCountries";
 export default async function Home() {
   const countries = await getCountries();
 
-  return (
-    <>
-      <ClientProvider countries={countries} />
-    </>
-  );
+  return <ClientProvider countries={countries} />;
 }

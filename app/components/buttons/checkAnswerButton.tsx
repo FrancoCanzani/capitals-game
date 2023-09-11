@@ -47,7 +47,7 @@ export default function CheckAnswerButton({
     <button
       onClick={handleSubmit}
       type="submit"
-      className={`bg-black w-2/3 text-white rounded-sm px-3 py-3 font-semibold ${
+      className={`w-2/3 rounded-md bg-black px-3 py-3 font-semibold text-white ${
         shake ? "shake" : "" // Apply the 'shake' class when guess is incorrect or empty
       }`}
     >

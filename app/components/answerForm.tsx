@@ -31,9 +31,9 @@ export default function AnswerForm({
   const [shake, setShake] = useState(false); // State variable for shaking effect
 
   return (
-    <form className="flex pt-4 pb-6 xs:pb-8 w-full flex-col justify-between gap-1">
-      <LetterHider answer={answer} userInput={userInput} revealAnswer={revealAnswer} />
-      <label htmlFor="guess" className="font-semibold hidden text-xs mb-1">
+    <form className="xs:pb-8 flex w-full flex-col justify-between gap-1 pb-6 pt-4">
+      {country && <LetterHider answer={answer} userInput={userInput} revealAnswer={revealAnswer} />}
+      <label htmlFor="guess" className="mb-1 hidden text-xs font-semibold">
         Your Answer
       </label>
       <input
@@ -42,14 +42,16 @@ export default function AnswerForm({
         spellCheck="false"
         autoFocus
         id="guess"
-        className={`rounded-sm p-2 my-2 border-2 ${shake ? "border-red-500" : "border-gray-100"}`}
+        className={`my-2 rounded-md border-2 p-2 dark:bg-gray-100 dark:text-black ${
+          shake ? "border-red-500" : "border-gray-100"
+        }`}
         placeholder="Answer"
         value={userInput}
         autoComplete="off"
         onChange={(e) => setUserInput(e.target.value)}
       />
 
-      <div className="space-x-1 flex items-center">
+      <div className="flex items-center space-x-1">
         <CheckAnswerButton
           userInput={userInput}
           setUserInput={setUserInput}
