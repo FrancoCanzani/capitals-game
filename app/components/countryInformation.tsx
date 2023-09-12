@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Country } from "@/utils/types";
 import CountryDifficultyIndicator from "./capitalDifficultyIndicator";
+import CountryInformationSkeleton from "./skeletons/countryInformationSkeleton";
 
 export default function CountryInformation({
   country,
@@ -15,11 +16,7 @@ export default function CountryInformation({
 }) {
   if (!country) {
     // Handle the case when country is null or uninitialized
-    return (
-      <div className="animate-fade animate-ease-in-out flex flex-col items-center py-8 md:py-6">
-        <p>Loading country information...</p>
-      </div>
-    );
+    return <CountryInformationSkeleton />;
   }
 
   const currencies = Object.values(country.currencies)

@@ -42,7 +42,7 @@ export default function Header({ streakCount }: { streakCount: number }) {
       <Toaster />
       <Icon />
       {loading ? (
-        <span className="loading loading-dots loading-xs"></span>
+        <span className="loading loading-dots loading-xs" aria-label="Streak counter"></span>
       ) : user ? (
         <Dropdown streakCount={streakCount} user={user} userData={userData} />
       ) : (

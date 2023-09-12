@@ -8,7 +8,7 @@ export default function LetterHider({
   revealAnswer: boolean;
 }) {
   return (
-    <fieldset className="z-50 flex flex-wrap items-center justify-center rounded-md bg-slate-100 px-2 py-1 text-sm dark:text-black">
+    <fieldset className="min-h-12 z-50 flex flex-wrap items-center justify-center rounded-md bg-slate-100 px-2 py-1 text-sm dark:text-black">
       <legend className="font-semibold dark:text-white dark:mix-blend-difference">Capital:</legend>
       {answer &&
         answer

@@ -32,7 +32,7 @@ export default function AnswerForm({
 
   return (
     <form className="xs:pb-8 flex w-full flex-col justify-between gap-1 pb-6 pt-4">
-      {country && <LetterHider answer={answer} userInput={userInput} revealAnswer={revealAnswer} />}
+      <LetterHider answer={answer} userInput={userInput} revealAnswer={revealAnswer} />
       <label htmlFor="guess" className="mb-1 hidden text-xs font-semibold">
         Your Answer
       </label>
