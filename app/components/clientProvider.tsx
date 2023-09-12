@@ -20,7 +20,7 @@ export default function ClientProvider({ countries }: { countries: Country[] }) 
   }, [countries, alreadyGuessedCountries]);
 
   return (
-    <main className="mx-3 w-full px-3 py-2 sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-1/2">
+    <main className="mx-3 w-full px-3 py-2 sm:w-3/4 md:w-2/3 lg:w-1/2 ">
       <Header streakCount={streakCount} />
       <CountryInformation country={country} countries={countries} alreadyGuessedCountries={alreadyGuessedCountries} />
       <AnswerForm

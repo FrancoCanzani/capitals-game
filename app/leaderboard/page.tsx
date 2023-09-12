@@ -15,22 +15,22 @@ export default function Leaderboard() {
   const sortedData = data?.docs.slice().sort((a, b) => b.data().maxStreak - a.data().maxStreak);
 
   return (
-    <section className="w-full px-4 py-4">
-      <Link href={"/"} className="flex items-center text-xs gap-1 hover:underline">
+    <section className="mx-3 w-full px-3 py-2 sm:w-3/4 md:w-2/3 lg:w-1/2 ">
+      <Link href={"/"} className="flex items-center gap-1 text-xs hover:underline">
         <MoveLeft size={15} /> Back to the game
       </Link>
 
-      <div className="w-full flex py-8 flex-col items-center">
-        <div className={`${leagueSpartan.className} text-3xl flex items-center gap-4 lg:text-4xl font-semibold`}>
+      <div className="flex w-full flex-col items-center py-8">
+        <div className={`${leagueSpartan.className} flex items-center gap-4 text-3xl font-semibold lg:text-4xl`}>
           Capitals <Image src={"/world-icon.svg"} width={35} height={35} alt="World icon" />
           Leaderboard
         </div>
         {dataLoading ? (
-          <span className="mt-8 loading loading-dots loading-md"></span>
+          <span className="loading loading-dots loading-md mt-8"></span>
         ) : dataError ? (
           <p className="mt-8 bg-red-300 px-3 py-2 text-center">Error: {dataError.message}</p>
         ) : (
-          <div className="overflow-x-auto mt-8">
+          <div className="mt-8 overflow-x-auto">
             <table className="table">
               <thead>
                 <tr>
