@@ -38,16 +38,16 @@ export default function Header({ streakCount }: { streakCount: number }) {
   }, [userData, streakCount, user]);
 
   return (
-    <header className="flex mb-2 items-center flex-row justify-between w-full">
+    <header className="mb-2 mt-2 flex w-full flex-row items-center justify-between">
       <Toaster />
       <Icon />
       {loading ? (
-        <span className="loading loading-dots loading-md"></span>
+        <span className="loading loading-dots loading-xs"></span>
       ) : user ? (
         <Dropdown streakCount={streakCount} user={user} userData={userData} />
       ) : (
         <button
-          className="flex items-center font-semibold gap-2 hover:bg-gray-50 bg-white rounded-md p-2 flex-row justify-between w-24"
+          className="flex w-24 flex-row items-center justify-between gap-2 rounded-md bg-slate-100 p-2 font-semibold shadow hover:bg-gray-50"
           onClick={() => signInWithGoogle()}
         >
           <Image src={"/google.png"} alt="Google Logo" height={20} width={15} />

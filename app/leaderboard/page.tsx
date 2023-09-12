@@ -26,7 +26,7 @@ export default function Leaderboard() {
           Leaderboard
         </div>
         {dataLoading ? (
-          <span className="loading loading-dots loading-md mt-8"></span>
+          <span className="loading loading-dots loading-xs mt-8"></span>
         ) : dataError ? (
           <p className="mt-8 bg-red-300 px-3 py-2 text-center">Error: {dataError.message}</p>
         ) : (
