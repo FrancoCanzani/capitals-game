@@ -47,7 +47,7 @@ export default function Header({ streakCount }: { streakCount: number }) {
         <Dropdown streakCount={streakCount} user={user} userData={userData} />
       ) : (
         <button
-          className="flex w-24 flex-row items-center justify-between gap-2 rounded-md bg-slate-100 p-2 font-semibold shadow hover:bg-gray-50"
+          className="flex w-24 flex-row items-center justify-between gap-2 rounded-md bg-slate-100 p-2 font-semibold hover:bg-gray-50"
           onClick={() => signInWithGoogle()}
         >
           <Image src={"/google.png"} alt="Google Logo" height={20} width={15} />
