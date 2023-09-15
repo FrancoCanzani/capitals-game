@@ -8,6 +8,20 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Capitals - Guess the capital!",
   description: "Guess the capital of the country",
+  generator: "Next.js",
+  applicationName: "Capitals",
+  referrer: "origin-when-cross-origin",
+  keywords: [
+    "Guess the capital game",
+    "World capitals quiz",
+    "Geography trivia",
+    "Educational quiz",
+    "Learn country capitals",
+    "Interactive geography",
+    "Fun geography game",
+    "Capital city challenge",
+  ],
+  creator: "Franco Canzani",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
