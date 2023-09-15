@@ -1,9 +1,13 @@
-import { getAuth, GoogleAuthProvider, signInWithRedirect } from 'firebase/auth';
-import { app } from '../firebase';
+import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { app } from "../firebase";
 
 const provider = new GoogleAuthProvider();
 const auth = getAuth(app);
 
 export default async function signInWithGoogle(): Promise<void> {
-  signInWithRedirect(auth, provider);
+  try {
+    const result = await signInWithPopup(auth, provider);
+  } catch (error) {
+    throw new Error("Sign-in with Google failed. Please try again.");
+  }
 }
