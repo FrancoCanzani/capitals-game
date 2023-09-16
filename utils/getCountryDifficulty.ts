@@ -12,11 +12,39 @@ export default function getCountryDifficulty(country: Country): CapitalDifficult
   // Helper function to check if a country is in a specific continent
   const isInContinent = (continent: string) => continents.includes(continent);
 
-  const specialCases = ["Vatican City", "Monaco"];
+  const easyCountries = ["Vatican City", "Monaco", "Cairo", "Tokyo", "Havana", "Jerusalem", "Seoul"];
+  const mediumCountries = [
+    "Bratislava",
+    "Baku",
+    "Bucharest",
+    "Zagreb",
+    "Minsk",
+    "Belgrade",
+    "Taipei",
+    "Rabat",
+    "Pretoria",
+    "City Of San Marino",
+    "Riyadh",
+    "City Of Victoria",
+    "Gibraltar",
+    "Kathmandu",
+    "Nairobi",
+    "Tibilisi",
+    "Pyongyang",
+    "Hanoi",
+    "Andorra La Vella",
+    "Yaoundé",
+    "Vaduz",
+  ];
+  const hardCountries = ["Port Moresby", "Dhaka", "Pristina", "Dili"];
 
   // Check for special cases
-  if (specialCases.includes(name.common)) {
+  if (easyCountries.includes(name.common)) {
     return CapitalDifficulty.EASY;
+  } else if (mediumCountries.includes(name.common)) {
+    return CapitalDifficulty.MEDIUM;
+  } else if (hardCountries.includes(name.common)) {
+    return CapitalDifficulty.HARD;
   }
 
   // Check by continent
