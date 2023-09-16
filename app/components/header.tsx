@@ -11,7 +11,6 @@ import createPlayerIfNotExists from "@/utils/createPlayerIfNotExists";
 import updateMaxStreak from "@/utils/updateMaxStreak";
 import Image from "next/image";
 import Dropdown from "./dropdown";
-import { Toaster } from "sonner";
 
 export default function Header({ streakCount }: { streakCount: number }) {
   const auth = getAuth(app);
@@ -39,7 +38,6 @@ export default function Header({ streakCount }: { streakCount: number }) {
 
   return (
     <header className="mb-2 mt-2 flex w-full flex-row items-center justify-between">
-      <Toaster />
       <Icon />
       {loading ? (
         <span className="loading loading-dots loading-xs" aria-label="Streak counter"></span>
