@@ -11,12 +11,13 @@ import createPlayerIfNotExists from "@/utils/createPlayerIfNotExists";
 import updateMaxStreak from "@/utils/updateMaxStreak";
 import Image from "next/image";
 import Dropdown from "./dropdown";
+import { Toaster } from "sonner";
 
 export default function Header({ streakCount }: { streakCount: number }) {
   const auth = getAuth(app);
 
-  const [user, loading, error] = useAuthState(auth);
-  const [userData, userDataLoading, userDataError] = useDocument(user ? doc(db, "players", user.uid) : null);
+  const [user, loading] = useAuthState(auth);
+  const [userData] = useDocument(user ? doc(db, "players", user.uid) : null);
 
   useEffect(() => {
     if (user && !loading) {
@@ -38,6 +39,7 @@ export default function Header({ streakCount }: { streakCount: number }) {
 
   return (
     <header className="mb-2 mt-2 flex w-full flex-row items-center justify-between">
+      <Toaster theme="system" />
       <Icon />
       {loading ? (
         <span className="loading loading-dots loading-xs" aria-label="Streak counter"></span>
