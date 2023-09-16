@@ -1,87 +1,143 @@
-# Countries Game
+<br/>
+<p align="center">
+  <a href="https://github.com/FrancoCanzani/capitals-game">
+    <img src="public/world-icon.png" alt="Logo" width="80" height="80">
+  </a>
 
-Countries Game is a web application built using Next.js that tests your knowledge of world capitals. It provides an interactive quiz where you can guess the capital of a random country. The game features a leaderboard to track your progress.
+  <h3 align="center">Guess The Capital</h3>
 
-## Table of Contents
+  <p align="center">
+    A Simple Game To Master Geography
+    <br/>
+    <br/>
+    <a href="https://github.com/FrancoCanzani/capitals-game"><strong>Explore the docs »</strong></a>
+    <br/>
+    <br/>
+    <a href="https://github.com/FrancoCanzani/capitals-game">View Demo</a>
+    .
+    <a href="https://github.com/FrancoCanzani/capitals-game/issues">Report Bug</a>
+    .
+    <a href="https://github.com/FrancoCanzani/capitals-game/issues">Request Feature</a>
+  </p>
+</p>
 
-- Installation
-- Usage
-- Components
-- Dependencies
-- License
+![Issues](https://img.shields.io/github/issues/FrancoCanzani/capitals-game) ![License](https://img.shields.io/github/license/FrancoCanzani/capitals-game)
 
-## Installation
+## Table Of Contents
 
-To run the Countries Game locally, follow these steps:
+- [About the Project](#about-the-project)
+- [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+- [Contributing](#contributing)
+- [License](#license)
 
-1. Clone the repository to your local machine:
+## About The Project
 
-> git clone https://github.com/FrancoCanzani/capitals-game.git
+![Screen Shot](public/screenshot.png)
+
+Capitals is a fun and interactive quiz where you can guess the capital of a random country. You can see detailed information about the country, such as its flag, official name, continent, currency, language, and population. You can also track your progress and see how you rank among other players on the leaderboard.
+
+## Built With
+
+Capitals was built using Next.js, a popular React framework for building web applications. It also uses Firebase for data storage and real-time synchronization for the leaderboard. The user interface was styled using Tailwind CSS, a utility-first CSS framework. The icons were provided by lucide-react, a library of simply beautiful icons for your web projects.
+
+## Getting Started
+
+To set up the project at `https://github.com/FrancoCanzani/capitals-game` locally, you can follow these steps:
+
+1. Clone the repository to your local machine using Git:
+
+```
+git clone https://github.com/FrancoCanzani/capitals-game.git
+```
 
 2. Navigate to the project directory:
 
-> cd countries-game
+```
+cd capitals-game
+```
 
-3. Install the project dependencies:
+3. Install the necessary dependencies using npm:
 
-> npm install
+```
+npm install
+```
 
 4. Start the development server:
 
-> npm run dev
+```
+npm run dev
+```
 
-5. Open your browser and access the app at [http://localhost:3000](http://localhost:3000).
+5. Open your web browser and navigate to `http://localhost:3000` to view the application.
 
-## Usage
+You should now have a local copy of the Capitals Game project up and running on your machine.
 
-Countries Game presents you with a quiz to guess the capital of a random country. Here's how the game works:
+### Prerequisites
 
-- When you load the game, a random country is selected for you to guess its capital.
+Before setting up the project at `https://github.com/FrancoCanzani/capitals-game` locally, you need to make sure that you have the following prerequisites installed on your machine:
 
-- You can type your answer in the provided input field and submit it.
+1. Node.js: Capitals Game was built using Next.js. Next.js requires Node.js to be installed on your machine. You can download and install Node.js from the official website at `https://nodejs.org/en/`.
 
-- Your current streak count is displayed at the top, and you can track your progress.
+2. Git: You need Git to clone the repository and manage version control. You can download and install Git from the official website at `https://git-scm.com/downloads`.
 
-- As your streak count increases, you'll advance to higher difficulty levels based on country population.
+3. npm: Capitals Game uses npm to manage dependencies and packages. npm is included with Node.js, so you don't need to install it separately.
 
-- The game continues until you decide to exit or make a wrong guess.
+After you have installed these prerequisites, you can follow the steps I provided earlier to set up the project locally.
 
-## Components
+## Contributing
 
-The Countries Game consists of several key components:
+Thank you for your interest in contributing to the Capitals Game project at `https://github.com/FrancoCanzani/capitals-game`. Here are some guidelines to help you get started:
 
-### Home Component
+1. Fork the repository on GitHub.
+2. Clone your forked repository to your local machine using Git:
 
-The Home component is the main entry point of the game. It fetches a list of countries with their information, including name, capital, population, and more. A random country is selected as the initial question for the game.
+```
+git clone https://github.com/<your-username>/capitals-game.git
+```
 
-### ClientProvider Component
+3. Navigate to the project directory:
 
-The ClientProvider component manages the game's state, including the streak count. It displays the game's header and passes the selected country to the CountryInformation and AnswerInput components.
+```
+cd capitals-game
+```
 
-### CountryInformation Component
+4. Create a new branch for your changes:
 
-The CountryInformation component displays detailed information about the selected country, including its name, official name, continent, currency, language, and population. It also shows the country's flag.
+```
+git checkout -b my-new-feature
+```
 
-### Leaderboard Component
+5. Make your changes to the codebase.
+6. Test your changes locally by running the development server:
 
-The Leaderboard component displays a leaderboard of top players who have achieved the highest streak counts in the game. It retrieves data from a Firestore database and presents it in a table format.
+```
+npm run dev
+```
 
-## Dependencies
+7. Commit your changes and push them to your forked repository:
 
-The Countries Game relies on several dependencies to function correctly. Here are the key dependencies used in this project:
+```
+git add .
+git commit -m "Add my new feature"
+git push origin my-new-feature
+```
 
-- Next.js: A popular React framework for building web applications.
+8. Create a pull request on GitHub to merge your changes into the main repository.
 
-- Firebase: Firebase is used for data storage and real-time synchronization for the leaderboard.
+Please make sure that your changes are well-documented, well-tested, and follow the project's coding standards and guidelines.
 
-- Tailwind CSS: A utility-first CSS framework used for styling the user interface.
+Thank you for contributing to Capitals Game!
 
-- React: The JavaScript library for building user interfaces.
+### Creating A Pull Request
 
-- lucide-react: A library of simply beautiful icons for your web projects.
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## License
 
-This project is licensed under the MIT License. Feel free to use, modify, and distribute it as needed.
-
-Enjoy playing the Countries Game and testing your knowledge of world capitals!
+Distributed under the Apache-2.0 license. See [LICENSE](https://github.com/FrancoCanzani/capitals-game/blob/main/LICENSE.md) for more information.
