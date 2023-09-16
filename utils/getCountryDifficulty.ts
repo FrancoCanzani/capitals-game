@@ -42,7 +42,7 @@ export default function getCountryDifficulty(country: Country): CapitalDifficult
     "Algeria",
     "Saudi Arabia",
   ];
-  const hardCountries = ["Bangladesh", "Kosovo", "Moldova"];
+  const hardCountries = ["Bangladesh", "Kosovo", "Moldova", "Timor-Leste", "Papua New Guinea"];
 
   // Check for special cases
   if (easyCountries.includes(name.common)) {
