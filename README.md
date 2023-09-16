@@ -135,4 +135,4 @@ Thank you for contributing to Capitals Game!
 
 ## License
 
-Distributed under the Apache-2.0 license. See [LICENSE](https://github.com/FrancoCanzani/capitals-game/blob/master/LICENSE.md) for more information.
+Distributed under the Apache-2.0 license. See [LICENSE](https://github.com/FrancoCanzani/capitals-game/blob/master/LICENSE) for more information.
