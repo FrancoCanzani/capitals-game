@@ -10,11 +10,6 @@
     A Simple Game To Master Geography
     <br/>
     <br/>
-    <a href="https://github.com/FrancoCanzani/capitals-game"><strong>Explore the docs »</strong></a>
-    <br/>
-    <br/>
-    <a href="www.guessthecapital.com">Deployment</a>
-    .
     <a href="https://github.com/FrancoCanzani/capitals-game/issues">Report Bug</a>
     .
     <a href="https://github.com/FrancoCanzani/capitals-game/issues">Request Feature</a>
