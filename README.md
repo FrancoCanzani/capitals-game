@@ -13,7 +13,7 @@
     <a href="https://github.com/FrancoCanzani/capitals-game"><strong>Explore the docs »</strong></a>
     <br/>
     <br/>
-    <a href="https://github.com/FrancoCanzani/capitals-game">View Demo</a>
+    <a href="www.guessthecapital.com">Deployment</a>
     .
     <a href="https://github.com/FrancoCanzani/capitals-game/issues">Report Bug</a>
     .
