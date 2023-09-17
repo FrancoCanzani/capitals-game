@@ -15,8 +15,8 @@ export default function AlreadyGuessedCountriesHistory({
         <History size={18} />
         History
       </h2>
-      <ol className="w-full">
-        {alreadyGuessedCountries.slice(0, 5).map((country: Country, index) => (
+      <ol className="max-h-80 w-full overflow-y-auto pr-1">
+        {alreadyGuessedCountries.map((country: Country, index) => (
           <li
             className={`${index == 0 && "animate-fade-down animate-duration-500 animate-ease-in-out"} ${
               index == alreadyGuessedCountries.length - 1 && "mb-6 border-b"

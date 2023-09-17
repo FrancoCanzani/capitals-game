@@ -2,15 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-body::-webkit-scrollbar {
-  display: none;
+/* This targets the scrollbar in WebKit-based browsers for the body and ol */
+body::-webkit-scrollbar,
+ol::-webkit-scrollbar {
+  width: 6px; /* Adjust the width as needed */
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
-body {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+/* This targets the scrollbar thumb (the draggable part) for the body and ol */
+body::-webkit-scrollbar-thumb,
+ol::-webkit-scrollbar-thumb {
+  background-color: #ccc; /* Change the color as needed */
+  border-radius: 3px; /* Rounded corners for the thumb */
+}
+
+/* This targets the scrollbar track (the background of the scrollbar) for the body and ol */
+body::-webkit-scrollbar-track,
+ol::-webkit-scrollbar-track {
+  background-color: #f1f1f1; /* Change the color as needed */
 }
 
 /* Custom CSS animation for the reveal */

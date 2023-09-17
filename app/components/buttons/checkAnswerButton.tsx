@@ -15,8 +15,7 @@ export default function CheckAnswerButton({
 }: CheckButtonProps) {
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-
-    if (userInput.toLowerCase() === answer?.toLowerCase()) {
+    if (userInput.toLowerCase().trim() === answer?.toLowerCase()) {
       // Trigger confetti
       party.confetti(e.target as HTMLElement, {
         count: party.variation.range(20, 40),

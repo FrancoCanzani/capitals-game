@@ -8,8 +8,8 @@ export default function LetterHider({
   revealAnswer: boolean;
 }) {
   return (
-    <fieldset className="min-h-12 z-50 flex flex-wrap items-center justify-center rounded-md bg-slate-100 px-2 py-1 text-sm dark:text-black">
-      <legend className="font-semibold dark:text-white dark:mix-blend-difference">Capital:</legend>
+    <div className="min-h-12 z-50 flex items-center justify-start rounded-md bg-slate-100 px-2 py-1 text-sm dark:text-black">
+      <span className="mr-1 font-semibold">Capital:</span>
       {answer &&
         answer
           .toLowerCase()
@@ -17,16 +17,18 @@ export default function LetterHider({
           .map((letter, index) => (
             <span
               key={index}
-              className={`mb-1 mr-1 flex h-5 w-5 max-w-full basis-auto items-center justify-center rounded-sm font-semibold uppercase ${
-                letter === userInput.toLowerCase().split("")[index] || revealAnswer === true || letter == " "
-                  ? "revealed" // Apply the revealed class
-                  : "bg-slate-300"
+              className={`flex max-w-full basis-auto items-center justify-center rounded-sm font-semibold capitalize ${
+                letter === userInput.toLowerCase().split("")[index] || revealAnswer === true || letter === " "
+                  ? "revealed mr-1 px-1" // Apply the revealed class
+                  : "mr-1 bg-slate-300 px-1.5 text-slate-400"
               }`}
             >
               {/* Don't render the letter so the answer can't be inspected in devtools */}
-              {letter === userInput.toLowerCase().split("")[index] || revealAnswer === true ? letter : ""}
+              {letter === userInput.toLowerCase().split("")[index] || revealAnswer === true || letter === " "
+                ? letter
+                : "?"}
             </span>
           ))}
-    </fieldset>
+    </div>
   );
 }

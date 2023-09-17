@@ -52,17 +52,6 @@ export default function AnswerForm({
       />
 
       <div className="flex items-center space-x-1">
-        <CheckAnswerButton
-          userInput={userInput}
-          setUserInput={setUserInput}
-          answer={answer}
-          setStreakCount={setStreakCount}
-          streakCount={streakCount}
-          shake={shake}
-          setShake={setShake}
-          country={country}
-          setAlreadyGuessedCountries={setAlreadyGuessedCountries}
-        />
         <SkipAnswerButton
           userInput={userInput}
           setUserInput={setUserInput}
@@ -74,6 +63,17 @@ export default function AnswerForm({
           country={country}
           setCountry={setCountry}
           alreadyGuessedCountries={alreadyGuessedCountries}
+          setAlreadyGuessedCountries={setAlreadyGuessedCountries}
+        />
+        <CheckAnswerButton
+          userInput={userInput}
+          setUserInput={setUserInput}
+          answer={answer}
+          setStreakCount={setStreakCount}
+          streakCount={streakCount}
+          shake={shake}
+          setShake={setShake}
+          country={country}
           setAlreadyGuessedCountries={setAlreadyGuessedCountries}
         />
       </div>
