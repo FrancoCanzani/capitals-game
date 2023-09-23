@@ -42,7 +42,7 @@ export default function CountryInformation({
             priority
             fill
             style={{ objectFit: "cover" }}
-            className="rounded-md bg-cover"
+            className="rounded-md"
           />
         </div>
         <div className="h-52 w-full max-w-full gap-2 text-start text-sm capitalize lg:w-1/2">

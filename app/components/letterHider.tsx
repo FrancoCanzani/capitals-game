@@ -8,7 +8,7 @@ export default function LetterHider({
   revealAnswer: boolean;
 }) {
   return (
-    <div className="min-h-12 z-50 flex items-center justify-start rounded-md bg-slate-100 px-2 py-1 text-sm dark:text-black">
+    <div className="min-h-12 z-10 flex items-center justify-start rounded-md bg-slate-100 px-2 py-1 text-sm dark:text-black">
       <span className="mr-1 font-semibold">Capital:</span>
       {answer &&
         answer
