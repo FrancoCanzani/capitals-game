@@ -6,23 +6,25 @@ import Image from "next/image";
 import signInWithGoogle from "@/utils/signInWithGoogle";
 import { User } from "firebase/auth";
 export default function InstructionsModal({
-  openPopup,
-  setOpenPopup,
+  openModal,
+  setOpenModal,
   user,
+  loading,
 }: {
-  openPopup: boolean;
-  setOpenPopup: Dispatch<SetStateAction<boolean>>;
+  openModal: boolean;
+  setOpenModal: Dispatch<SetStateAction<boolean>>;
   user: User | null | undefined;
+  loading: boolean;
 }) {
   return (
     <div
       className={`animate-fade animate-ease-in-out animate-duration-200 absolute left-1/2 top-1/2 z-50 min-w-[80%] max-w-xl -translate-x-1/2 -translate-y-1/2 transform rounded-md bg-white px-5 pb-6 pt-2 text-sm shadow-2xl sm:min-w-0 ${
-        openPopup ? "block" : "hidden"
+        openModal ? "block" : "hidden"
       }`}
     >
       <div className="mb-2 flex items-center justify-between">
         <h2 className="text-lg font-semibold capitalize">How to Play</h2>
-        <button className="p-1 text-sm font-bold" onClick={() => setOpenPopup(!openPopup)}>
+        <button className="p-1 text-sm font-bold" onClick={() => setOpenModal(!openModal)}>
           X
         </button>
       </div>
@@ -54,7 +56,7 @@ export default function InstructionsModal({
       </div>
       <p>Good luck, and let&apos;s see who can achieve the longest streak and reach the leaderboard&apos;s pinnacle!</p>
 
-      {!user && (
+      {!user && !loading && (
         <div className="my-2 border-b border-t py-2">
           <button
             className="flex w-full flex-row items-center justify-center gap-2 rounded-md bg-slate-100 p-2 font-semibold hover:bg-gray-50"

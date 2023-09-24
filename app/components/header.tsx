@@ -13,13 +13,15 @@ import Image from "next/image";
 import Dropdown from "./dropdown";
 import { Toaster } from "sonner";
 import InstructionsModal from "./instructionsModal";
+import { Medal } from "lucide-react";
+import Link from "next/link";
 
 export default function Header({ streakCount }: { streakCount: number }) {
   const auth = getAuth(app);
 
   const [user, loading] = useAuthState(auth);
   const [userData] = useDocument(user ? doc(db, "players", user.uid) : null);
-  const [openPopup, setOpenPopup] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect(() => {
     if (user && !loading) {
@@ -42,15 +44,18 @@ export default function Header({ streakCount }: { streakCount: number }) {
   return (
     <header className="mb-2 mt-2 flex w-full flex-row items-center justify-between">
       <Toaster theme="system" />
-      <InstructionsModal openPopup={openPopup} setOpenPopup={setOpenPopup} user={user} />
+      <InstructionsModal openModal={openModal} setOpenModal={setOpenModal} user={user} loading={loading} />
       <Icon />
       <div className="flex items-center gap-3">
         <button
           className="rounded-full border-2 border-black bg-slate-100 px-1.5 text-sm font-bold hover:bg-gray-50"
-          onClick={() => setOpenPopup(!openPopup)}
+          onClick={() => setOpenModal(!openModal)}
         >
           ?
         </button>
+        <Link target="blank" href={"/leaderboard"}>
+          <Medal />
+        </Link>
         {loading ? (
           <span className="loading loading-dots loading-xs" aria-label="Streak counter"></span>
         ) : user ? (

@@ -1,6 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
-import { LogOut, MoveUpRight } from "lucide-react";
+import { LogOut } from "lucide-react";
 import { User, getAuth, signOut } from "firebase/auth";
 import { app } from "../../firebase";
 import { DocumentSnapshot, DocumentData } from "firebase/firestore";
@@ -44,13 +43,6 @@ export default function Dropdown({
           <div className="flex w-full flex-row items-center justify-between rounded-md hover:bg-gray-50">
             <span>Max. Streak</span>
             <span className="rounded-md bg-gray-50 px-2 py-1">{userData?.data()?.maxStreak}</span>
-          </div>
-        </li>
-        <li className="border-b">
-          <div className="mb-1 flex flex-row items-center justify-between hover:bg-gray-50">
-            <Link href={"/leaderboard"} target="blank" className="flex w-full items-center justify-between">
-              Leaderboard <MoveUpRight size={18} />
-            </Link>
           </div>
         </li>
         <li className="mt-1">
