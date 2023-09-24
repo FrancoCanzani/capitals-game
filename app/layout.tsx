@@ -21,6 +21,12 @@ export const metadata: Metadata = {
     "Fun geography game",
     "Capital city challenge",
   ],
+  openGraph: {
+    title: "Capitals",
+    description: "Play, learn and compete guessing the capitals",
+    url: "https://guessthecapital.com",
+    siteName: "guessthecapital.com",
+  },
   creator: "Franco Canzani",
 };
 
